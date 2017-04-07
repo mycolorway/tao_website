@@ -1,0 +1,10 @@
+<h1>Basic Form</h1>
+
+<%= tao_form Docs::Form::Person.new, url: docs_form_persons_path, html: {class: 'test-form'} do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email, as: :email %>
+
+  <div class="form-buttons">
+    <%= f.button :submit %>
+  </div>
+<% end %>
