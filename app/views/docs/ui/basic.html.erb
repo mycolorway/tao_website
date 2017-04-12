@@ -1,0 +1,105 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+  <h3>标题</h3>
+
+  <div class="example">
+    <h1>一号标题</h1>
+    <h2>二号标题</h2>
+    <h3>三号标题</h3>
+    <h4>四号标题</h4>
+    <h5>五号标题</h5>
+    <h6>六号标题</h6>
+  </div>
+
+  <h3>正文</h3>
+
+  <p class="example">
+    <span class='large'>大号字体</span>、普通字体、<span class="small">小号字体</span>、<span class="x-small">加小号字体</span><br>
+    行间距 2.0
+  </p>
+
+  <h3>链接</h3>
+
+
+  <p class="example">
+    <%= link_to "普通链接", '#' %>、<%= link_to '禁用状态', '#', class: 'disabled' %>
+  </p>
+
+  <h3>列表</h3>
+
+  <div class="example">
+    <ul>
+      <li>
+        列表项 1
+        <ol>
+          <li>列表项 1</li>
+          <li>列表项 2</li>
+          <li>列表项 3</li>
+        </ol>
+      </li>
+      <li>列表项 2</li>
+      <li>列表项 3</li>
+    </ul>
+  </div>
+
+  <h3>代码</h3>
+
+  <div class="example">
+    <p>行内代码 <code>test()</code>、键盘按键 <kbd><kbd>Cmd</kbd> + <kbd>C</kbd></kbd></p>
+
+    <pre><code class="coffee"><%= %Q(\
+class TodoItem extends TaoComponent
+
+  @tag 'tao-todo-item'
+
+  @attribute 'completed', type: 'boolean', default: false
+
+  _connected: ->
+    @on 'change', '.todo-checkbox', (e) =>
+      @completed = $(e.currentTarget).is(':checked')
+
+TaoComponent.register TodoItem
+  ) %></code></pre>
+  </div>
+
+  <h3>引用</h3>
+
+  <div class="example">
+    <blockquote>
+      <p>知人，智能人力资源管理专家</p>
+    </blockquote>
+  </div>
+
+  <h3>表格</h3>
+
+  <div class="example">
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>工号</th>
+          <th>部门</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>多发</td>
+          <td>001</td>
+          <td>知人</td>
+        </tr>
+        <tr>
+          <td>小五</td>
+          <td>002</td>
+          <td>知人</td>
+        </tr>
+        <tr>
+          <td>仁波切</td>
+          <td>003</td>
+          <td>知人</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</article>

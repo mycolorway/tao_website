@@ -5,8 +5,8 @@ class DocsController < ApplicationController
 
   def show
     @doc_path = params[:path]
-    @page_class = "docs/#{@doc_path}".split('/').join('-')
-    render @doc_path
+    @page_class = %Q(docs #{"docs/#{@doc_path}".split('/').join('-')})
+    render "docs/#{@doc_path}"
   end
 
 end

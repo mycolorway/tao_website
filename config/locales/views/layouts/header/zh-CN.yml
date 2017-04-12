@@ -1,0 +1,7 @@
+zh-CN:
+  layouts:
+    header:
+      home: 简介
+      docs: 文档与指南
+      contribution: 贡献代码
+      team: 团队

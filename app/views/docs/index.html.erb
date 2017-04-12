@@ -1,10 +1,13 @@
-<h1>Docs</h1>
+<h2>文档与指南</h2>
 
-<ul>
-  <li>
-    <%= link_to "Tao UI", doc_path(path: 'ui') %>
-  </li>
-  <li>
-    <%= link_to "Tao Form", doc_path(path: 'form') %>
-  </li>
-</ul>
+<h3>Tao</h3>
+
+<p>Tao 本质上是 Ruby on Rails 在前端模块化方面的补充，填补了 Rails 项目在这方面的空白。Tao 项目的开发模式跟传统的 Rails 项目基本上是一致的：前端脚本负责交互逻辑，交互行为会产生 ujs remote 请求，服务器端处理数据、渲染模版，最后通过 SJR 响应更新页面或者局部的状态。</p>
+
+<p><%= link_to "了解更多", 'https://github.com/mycolorway/tao_on_rails/wiki' %></p>
+
+<h3>Tao UI</h3>
+
+<p>Tao UI 为项目提供基础的全局样式和相关工具。</p>
+
+<p><%= link_to "了解更多", doc_path(path: 'ui/basic') %></p>

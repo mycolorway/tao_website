@@ -1,0 +1,14 @@
+<header>
+  <div class="title">
+    <h1><%= t :tao %></h1>
+    <p class="desc"><%= t :slogan %></p>
+  </div>
+
+  <nav>
+    <%= link_to t('.home'), root_path, class: controller_path =~ /home/ ? 'active' : '' %>
+    <%= link_to t('.docs'), docs_path, class: controller_path =~ /docs/ ? 'active' : '' %>
+    <%= link_to t('.contribution'), '#' %>
+    <%= link_to t('.team'), '#' %>
+  </nav>
+
+</header>

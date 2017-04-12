@@ -20,7 +20,6 @@ PATH
     tao_ui (0.1.0)
       momentjs-rails (~> 2.17.1)
       rails (~> 5.0.2)
-      tao_on_rails (~> 0.7.3)
 
 GEM
   remote: https://rubygems.org/
@@ -80,6 +79,8 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
+    i18n-debug (1.1.0)
+      i18n (< 1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
@@ -187,6 +188,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  i18n-debug
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)

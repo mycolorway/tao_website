@@ -1,9 +1,4 @@
 //= require tao
 //= require tao/ui
 //= require components
-
-@import 'tao/ui/globals';
-
-body {
-  font-size: $font-size;
-}
+//= require_tree .
