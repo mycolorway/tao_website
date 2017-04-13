@@ -1,16 +1,60 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
-  <h3>普通按钮</h3>
+  <h3>标准按钮</h3>
 
   <p>
-    <button>按钮一</button>
-    <button class="button-primary">按钮一</button>
-    <button class="button-small">按钮一</button>
-    <button class="button-primary">按钮一</button>
+    <button>普通按钮</button>
+    <button class="button-warning">警告按钮</button>
+    <button class="button-primary">主要按钮</button>
+    <button class="button-primary-warning">主要警告按钮</button>
   </p>
 
-  <h3>链接按钮</h3>
+  <p>
+    <button disabled>普通按钮</button>
+    <button class="button-warning" disabled>警告按钮</button>
+    <button class="button-primary" disabled>主要按钮</button>
+    <button class="button-primary-warning" disabled>主要警告按钮</button>
+  </p>
 
+  <h3>小号按钮</h3>
+
+  <p>
+    <%= link_to "普通按钮", '#', class: 'button button-small' %>
+    <%= link_to "警告按钮", '#', class: 'button button-warning button-small' %>
+    <%= link_to "主要按钮", '#', class: 'button button-primary button-small' %>
+    <%= link_to "主要警告按钮", '#', class: 'button button-primary-warning button-small' %>
+  </p>
+
+  <p>
+    <%= link_to "普通按钮", '#', class: 'button button-small disabled' %>
+    <%= link_to "警告按钮", '#', class: 'button button-warning button-small disabled' %>
+    <%= link_to "主要按钮", '#', class: 'button button-primary button-small disabled' %>
+    <%= link_to "主要警告按钮", '#', class: 'button button-primary-warning button-small disabled' %>
+  </p>
+
+  <h3>图标按钮</h3>
+
+  <p>
+    <button>
+      <%= tao_icon :loading, class: 'spin' %>
+      普通按钮
+    </button>
+    <%= link_to '#', class: 'button button-small' do %>
+      <%= tao_icon :loading, class: 'spin' %>
+      普通按钮
+    <% end %>
+  </p>
+
+  <p>
+    <button disabled>
+      <%= tao_icon :loading, class: 'spin' %>
+      普通按钮
+    </button>
+    <%= link_to '#', class: 'button button-small disabled' do %>
+      <%= tao_icon :loading, class: 'spin' %>
+      普通按钮
+    <% end %>
+  </p>
 
 </article>

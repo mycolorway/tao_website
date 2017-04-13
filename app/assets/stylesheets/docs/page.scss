@@ -1,4 +1,4 @@
-@import 'tao/ui/globals';
+@import 'globals';
 
 .tao-page.docs main {
   display: flex;
@@ -48,7 +48,6 @@
 
   article {
     flex: 1 1 auto;
-    overflow: hidden;
 
     & > h3 {
       padding: 0 0 0.5em;

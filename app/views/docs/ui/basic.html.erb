@@ -23,7 +23,7 @@
 
 
   <p class="example">
-    <%= link_to "普通链接", '#' %>、<%= link_to '禁用状态', '#', class: 'disabled' %>
+    <%= link_to "普通链接", '#' %>、<%= link_to '警告链接', '#', class: 'warn' %>、<%= link_to '禁用状态', '#', class: 'disabled' %>
   </p>
 
   <h3>列表</h3>
@@ -60,7 +60,7 @@ class TodoItem extends TaoComponent
       @completed = $(e.currentTarget).is(':checked')
 
 TaoComponent.register TodoItem
-  ) %></code></pre>
+) %></code></pre>
   </div>
 
   <h3>引用</h3>

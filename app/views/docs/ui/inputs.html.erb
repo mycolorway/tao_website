@@ -3,10 +3,20 @@
 <article>
   <h3>文本框</h3>
 
-  <h3>Checkbox</h3>
+  <p>
+    <%= text_field_tag nil, '单行文本框' %>
+    <%= text_field_tag nil, '禁用状态', disabled: true %>
+  </p>
 
-  <h3>Radio</h3>
+  <p>
+    <%= text_area_tag nil, '多行文本框' %>
+    <%= text_area_tag nil, '多行文本框', disabled: true %>
+  </p>
 
-  <h3>Select</h3>
+  <h3>选择框</h3>
+
+  <p>
+    <%= select_tag nil, options_for_select(1..20) %>
+  </p>
 
 </article>
