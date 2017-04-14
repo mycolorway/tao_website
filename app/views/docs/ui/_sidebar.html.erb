@@ -4,7 +4,7 @@
   <h2>Tao UI</h2>
 
   <ul>
-    <% %w(basic icons buttons inputs).each do |section| %>
+    <% %w(basic icons buttons customization).each do |section| %>
     <li><%= link_to t(".#{section}"), doc_path(path: "ui/#{section}"), class: @doc_path == "ui/#{section}" ? 'active' : '' %></li>
     <% end %>
   </ul>

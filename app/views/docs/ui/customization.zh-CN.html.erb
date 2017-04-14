@@ -1,0 +1,18 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+
+  <h3>Sass 变量</h3>
+
+  <p>Tao UI 提供了一些全局的 Sass 变量，我们可以在项目里覆盖这个变量来实现全局样式的自定义。</p>
+
+  <p>你可以在 Tao UI 仓库的 <code>lib/assets/stylesheets/tao/ui/variables</code> 文件夹里找到这些变量，复制你想覆盖的变量到项目的 <code>lib/assets/stylesheets/tao/ui/_custom.scss</code> 文件，然后修改变量的值，比如：</p>
+
+<pre><code class="css"><%= %Q(\
+$ui-color: #3377cc;
+$font-size: 0.875rem;
+) %></code></pre>
+
+  <p>Tao UI 会自动 require 这个文件，并且覆盖默认的变量。</p>
+
+</article>

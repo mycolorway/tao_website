@@ -1,21 +1,13 @@
-@import 'globals';
+@import 'mobile/globals';
 
 .tao-page.docs main {
-  display: flex;
-
   aside {
-    width: 160px;
-    flex: 0 0 auto;
-    margin: 0 2rem 0 0;
-    padding: 0 0 0 0.5rem;
+    padding: 1.5em 2em;
+    background: $lighter-grey-bg-color;
 
     .link-return {
       color: $lighter-grey-color;
       font-size: $font-size-s;
-
-      &:hover {
-        color: $link-hover-color;
-      }
 
       &:before {
         content: '<';
@@ -29,14 +21,11 @@
       margin: 1.5rem 0 0 0;
 
       li {
-        margin-bottom: 0.5rem;
-
         a {
+          display: block;
+          padding: 0.5em 0;
           color: $text-color;
-
-          &:hover {
-            color: $link-hover-color;
-          }
+          line-height: $default-line-height;
 
           &.active {
             color: $ui-color;
@@ -47,8 +36,6 @@
   }
 
   article {
-    flex: 1 1 auto;
-
     & > h3 {
       padding: 0 0 0.5em;
       border-bottom: 1px solid $border-color;

@@ -1,7 +1,7 @@
 #= require tao
 #= require tao/ui
 #= require action_cable
-#= require components
+#= require desktop/components
 #= require_self
 #= require_tree .
 

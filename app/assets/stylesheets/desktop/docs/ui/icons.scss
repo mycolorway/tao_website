@@ -1,0 +1,29 @@
+@import 'desktop/globals';
+
+.tao-page.docs-ui-icons {
+  .default-icons {
+    display: flex;
+
+    .icon-example {
+      margin: 0 1rem 1rem 0;
+
+      .wrapper {
+        width: 100px;
+        height: 100px;
+        background: $lighter-grey-bg-color;
+        border-radius: $border-radius-s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .name {
+        margin: 0.5rem 0 0 0;
+        font-size: $font-size-xs;
+        text-align: center;
+        color: $lighter-grey-color;
+      }
+
+    }
+  }
+}
