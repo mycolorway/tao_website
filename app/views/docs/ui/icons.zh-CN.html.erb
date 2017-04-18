@@ -32,7 +32,7 @@ Tao.Application.initializer 'icons', (app) ->
 rails g tao:icons app
 ) %></code></pre>
 
-  <p>上面的命令会把<code>app/assets/icons</code>和<code>lib/assets/icons</code>里面的 SVG 源文件编译到<code>lib/assets/javascripts/tao/ui/icons/app.coffee</code>里面，这个文件的内容会被自动 require。</p>
+  <p>上面的命令会把<code>app/assets/icons</code>和<code>lib/assets/icons</code>里面的 SVG 源文件编译到<code>lib/assets/javascripts/tao/ui/icons/app.coffee</code>里面，注意你需要手动 require 这个文件。</p>
 
   <h3>默认图标</h3>
 

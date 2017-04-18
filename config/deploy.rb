@@ -11,18 +11,20 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-deploy_to = '/www_space/beast_blog'
-shared_path = '/www_space/beast_blog/shared'
+deploy_to = '/www_space/tao'
+shared_path = '/www_space/tao/shared'
 
-set :application_name, 'beast_blog'
+set :application_name, 'tao'
 set :domain, 'tao.zhiren.com'
-set :deploy_to, '/www_space/beast_blog'
+set :deploy_to, '/www_space/tao'
 set :repository, 'https://github.com/mycolorway/tao_website.git'
 set :branch, 'master'
 set :rails_env, 'production'
 set :unicorn_env, 'production'
 set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
 set :unicorn_cmd, "bundle exec /usr/bin/unicorn"
+
+set :rbenv_path, "/usr/local/rbenv"
 
 
 set :shared_paths, [
@@ -84,11 +86,11 @@ task :deploy do
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
-    invoke :'rails:db_migrate'
+#    invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
-    on :launch do
+    to :launch do
       invoke 'unicorn:restart'
     end
   end
