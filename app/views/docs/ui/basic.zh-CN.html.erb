@@ -1,6 +1,96 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
+  <h3>字体</h3>
+
+  <h4>字体类型</h4>
+
+  <p><code>"Helvetica Neue", "PingFang SC", "Microsoft Yahei", 微软雅黑, STXihei, 华文细黑, sans-serif</code></p>
+
+  <h4>字体大小</h4>
+
+  <ul>
+    <li><span class='large'>大号字体</span></li>
+    <li>普通字体</li>
+    <li><span class="small">小号字体</span></li>
+    <li><span class="x-small">加小号字体</span></li>
+  </ul>
+
+  <h3>颜色</h3>
+
+  <ul class="color-list">
+    <li>
+      <span class="color" style="background: #44BB33;"></span>
+      <code class="variable">$ui-color</code>
+      <span class="value">#44BB33</span>
+    </li>
+    <li>
+      <span class="color" style="background: #ffffff;"></span>
+      <code class="variable">$white-color</code>
+      <span class="value">#ffffff</span>
+    </li>
+    <li>
+      <span class="color" style="background: #4a4a4a;"></span>
+      <code class="variable">$grey-color</code>
+      <span class="value">#4a4a4a</span>
+    </li>
+    <li>
+      <span class="color" style="background: #000000;"></span>
+      <code class="variable">$black-color</code>
+      <span class="value">#000000</span>
+    </li>
+    <li>
+      <span class="color" style="background: #FF7755;"></span>
+      <code class="variable">$red-color</code>
+      <span class="value">#FF7755</span>
+    </li>
+    <li>
+      <span class="color" style="background: #FFAA00;"></span>
+      <code class="variable">$orange-color</code>
+      <span class="value">#FFAA00</span>
+    </li>
+    <li>
+      <span class="color" style="background: #55BB33;"></span>
+      <code class="variable">$green-color</code>
+      <span class="value">#55BB33</span>
+    </li>
+    <li>
+      <span class="color" style="background: #2DB7F5;"></span>
+      <code class="variable">$blue-color</code>
+      <span class="value">#2DB7F5</span>
+    </li>
+    <li>
+      <span class="color" style="background: #666666;"></span>
+      <code class="variable">$light-grey-color</code>
+      <span class="value">#666666</span>
+    </li>
+    <li>
+      <span class="color" style="background: #999999;"></span>
+      <code class="variable">$lighter-grey-color</code>
+      <span class="value">#999999</span>
+    </li>
+    <li>
+      <span class="color" style="background: #cccccc;"></span>
+      <code class="variable">$lightest-grey-color</code>
+      <span class="value">#cccccc</span>
+    </li>
+    <li>
+      <span class="color" style="background: #efefef;"></span>
+      <code class="variable">$grey-bg-color</code>
+      <span class="value">#efefef</span>
+    </li>
+    <li>
+      <span class="color" style="background: #f3f3f3;"></span>
+      <code class="variable">$light-grey-bg-color</code>
+      <span class="value">#f3f3f3</span>
+    </li>
+    <li>
+      <span class="color" style="background: #f6f6f6;"></span>
+      <code class="variable">$lighter-grey-bg-color</code>
+      <span class="value">#f6f6f6</span>
+    </li>
+  </ul>
+
   <h3>标题</h3>
 
   <div class="example">
@@ -12,12 +102,7 @@
     <h6>六号标题</h6>
   </div>
 
-  <h3>正文</h3>
-
-  <p class="example">
-    <span class='large'>大号字体</span>、普通字体、<span class="small">小号字体</span>、<span class="x-small">加小号字体</span><br>
-    行间距 2.0
-  </p>
+  <h4>颜色</h4>
 
   <h3>链接</h3>
 
@@ -74,7 +159,7 @@ TaoComponent.register TodoItem
   <h3>表格</h3>
 
   <div class="example">
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>姓名</th>

@@ -1,0 +1,24 @@
+@import 'desktop/globals';
+
+.tao-page.docs-ui-basic {
+  .color-list {
+    list-style: none;
+    padding: 0 0 0 0.2em;
+
+    .color {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      border-radius: $border-radius;
+      vertical-align: middle;
+      box-shadow: 0 0 2px rgba($black-color, 0.4);
+      margin: 0 0.5em 0 0;
+    }
+
+    .value {
+      font-size: $font-size-s;
+      color: $lighter-grey-color;
+      margin: 0 0 0 0.5em;
+    }
+  }
+}
