@@ -39,8 +39,8 @@ gem 'browser', '~> 2.3.0'
 
 # Deployment
 gem 'unicorn'
-gem 'mina'
-gem 'mina-unicorn', require: false
+gem 'mina', '~> 0.3.8'
+gem 'mina-unicorn', '~> 0.5.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
