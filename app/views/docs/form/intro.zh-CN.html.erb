@@ -1,0 +1,36 @@
+<%= render 'docs/form/sidebar' %>
+
+<article>
+  <h3>Simple Form</h3>
+
+  <p>Tao Form 依赖 <%= link_to "Simple Form", 'https://github.com/plataformatec/simple_form' %> 来实现表单的基础结构，Tao Form 的默认配置位于：<%= link_to 'config/initializers/simple_form.rb', 'https://github.com/mycolorway/tao_form/blob/master/config/initializers/simple_form.rb' %>，你可以在项目中通过创建相同的 <code>initializer</code> 来覆盖 Tao Form 的配置： </p>
+
+  <pre><code class="ruby"><%= %Q(\
+# config/initializers/simple_form.rb
+
+SimpleForm.setup do |config|
+
+  # input wrapper for desktop form
+  config.wrappers :tao_default do |b|
+
+    ...
+
+  end
+
+  # input wrapper for mobile form
+  config.wrappers :tao_mobile do |b|
+
+    ...
+
+  end
+
+end
+) %></code></pre>
+
+  <h3>提示和验证信息</h3>
+
+  <div class="example example-with-border">
+    <%= render 'docs/form/intro/form', person: Doc::Form::Person.new %>
+  </div>
+
+</article>

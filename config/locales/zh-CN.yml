@@ -148,8 +148,8 @@ zh-CN:
     select:
       prompt: 请选择
     submit:
-      create: 新增%{model}
-      submit: 储存%{model}
+      create: 添加%{model}
+      submit: 保存%{model}
       update: 更新%{model}
   number:
     currency:

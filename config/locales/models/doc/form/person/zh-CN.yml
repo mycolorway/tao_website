@@ -1,0 +1,15 @@
+zh-CN:
+  activemodel:
+    models:
+      doc/form/person: 人
+    attributes:
+      doc/form/person:
+        name: 姓名
+        nickname: 昵称
+        email: 邮箱
+        age: 年龄
+        gender: 性别
+        comment: 备注
+        married: 婚姻状况
+        handsome: 帅不帅
+        colors: 喜欢的颜色

@@ -1,0 +1,19 @@
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/text_field/form'),
+  html: {:class => 'person-form'}, remote: true do |f| %>
+
+  <fieldset>
+    <legend>普通文本</legend>
+    <%= f.input :name %>
+  </fieldset>
+
+  <fieldset>
+    <legend>前缀、后缀</legend>
+    <%= f.input :nickname, prefix: tao_icon(:menu) %>
+    <%= f.input :age, as: :integer, suffix: '岁' %>
+  </fieldset>
+
+  <fieldset>
+    <legend>大段文本</legend>
+    <%= f.input :comment, as: :text %>
+  </fieldset>
+<% end %>

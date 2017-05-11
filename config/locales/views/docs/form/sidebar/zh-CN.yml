@@ -1,0 +1,9 @@
+zh-CN:
+  docs:
+    form:
+      sidebar:
+        return_docs: 返回文档
+        intro: 介绍
+        text_field: 文本字段
+        boolean_field: 布尔字段
+        select_field: 选择字段

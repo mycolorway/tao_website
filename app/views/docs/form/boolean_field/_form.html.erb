@@ -1,0 +1,13 @@
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/boolean_field/form'),
+  html: {:class => 'person-form'}, remote: true do |f| %>
+
+  <fieldset>
+    <legend>Checkbox</legend>
+    <%= f.input :married, as: :boolean %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Switch</legend>
+    <%= f.input :handsome, as: :boolean, switch: true %>
+  </fieldset>
+<% end %>

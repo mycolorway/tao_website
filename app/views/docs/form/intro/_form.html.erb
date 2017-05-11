@@ -1,0 +1,9 @@
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/intro/form'),
+  html: {:class => 'person-form', :'success-message' => '添加成功'}, remote: true do |f| %>
+  <%= f.input :name, hint: '给自己起一个帅气的名字' %>
+  <%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %>
+
+  <div class="form-buttons">
+    <%= f.button :button, data: {disable_with: '正在添加'}, class: 'button-primary' %>
+  </div>
+<% end %>

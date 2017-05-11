@@ -1,0 +1,11 @@
+<aside>
+  <%= link_to t('.return_docs'), docs_path, class: 'link-return' %>
+
+  <h2>Tao Form</h2>
+
+  <ul>
+    <% %w(intro text_field boolean_field select_field).each do |section| %>
+    <li><%= link_to t(".#{section}"), doc_path(path: "form/#{section}"), class: @doc_path == "form/#{section}" ? 'active' : '' %></li>
+    <% end %>
+  </ul>
+</aside>

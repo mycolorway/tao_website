@@ -1,0 +1,15 @@
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/boolean_field/form'),
+  html: {:class => 'person-form'}, remote: true do |f| %>
+
+
+  <fieldset>
+    <legend>Checkbox Group</legend>
+    <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'black', 'white'] %>
+    <%= f.input :colors, as: :check_boxes, collection: colors %>
+  </fieldset>
+
+  <fieldset>
+    <legend>Radio Button Group</legend>
+    <%= f.input :gender, as: :radio_buttons, collection: [:male, :female] %>
+  </fieldset>
+<% end %>
