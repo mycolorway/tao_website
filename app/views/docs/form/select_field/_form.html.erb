@@ -1,6 +1,11 @@
 <%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/boolean_field/form'),
   html: {:class => 'person-form'}, remote: true do |f| %>
 
+  <fieldset>
+    <legend>Select</legend>
+    <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'black', 'white'] %>
+    <%= f.input :colors, as: :select, collection: colors %>
+  </fieldset>
 
   <fieldset>
     <legend>Checkbox Group</legend>

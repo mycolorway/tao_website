@@ -60,9 +60,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# gem 'tao_on_rails', '~> 0.8.0'
-# gem 'tao_ui', '~> 0.1.1'
-gem 'tao_on_rails', path: '/Users/farthinker/Sites/tao_on_rails'
-gem 'tao_ui', path: '/Users/farthinker/Sites/tao_ui'
-gem 'tao_form', path: '/Users/farthinker/Sites/tao_form'
+gem 'tao_on_rails', '~> 0.8.0'
+gem 'tao_ui', '~> 0.1.1'
+gem 'tao_form', '~> 0.0.1'
+# gem 'tao_on_rails', path: '/Users/farthinker/Sites/tao_on_rails'
+# gem 'tao_ui', path: '/Users/farthinker/Sites/tao_ui'
+# gem 'tao_form', path: '/Users/farthinker/Sites/tao_form'
 gem 'autoprefixer-rails', '~> 7.0.1'
