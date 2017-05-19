@@ -1,15 +1,31 @@
 <%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/boolean_field/form'),
   html: {:class => 'person-form'}, remote: true do |f| %>
 
+  <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %>
+  <% cities = [
+    ['四川', [
+      ['成都', '0', {:'data-search-key' => 'cd chengdu', :'data-hint' => '家乡'}],
+      ['乐山', '1', {:'data-search-key' => 'ls leshan'}],
+      ['绵阳', '2', {:'data-search-key' => 'my mianyang'}],
+      ['德阳', '3', {:'data-search-key' => 'dy deyang'}],
+      ['雅安', '4', {:'data-search-key' => 'ya yaan'}],
+      ['西昌', '5', {:'data-search-key' => 'xc xichang'}],
+    ]],
+    ['广东', [
+      ['广州', '6', {:'data-search-key' => 'gz guangzhou'}],
+      ['深圳', '7', {:'data-search-key' => 'sz shenzhen'}],
+      ['佛山', '8', {:'data-search-key' => 'fs foshan'}],
+      ['东莞', '9', {:'data-search-key' => 'dg dongguan'}],
+    ]]
+  ] %>
   <fieldset>
     <legend>Select</legend>
-    <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'black', 'white'] %>
     <%= f.input :colors, as: :select, collection: colors %>
+    <%= f.input :city, as: :grouped_select, collection: cities, group_method: :last, group_label_method: :first %>
   </fieldset>
 
   <fieldset>
     <legend>Checkbox Group</legend>
-    <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'black', 'white'] %>
     <%= f.input :colors, as: :check_boxes, collection: colors %>
   </fieldset>
 
