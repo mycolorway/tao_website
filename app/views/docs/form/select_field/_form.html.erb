@@ -9,19 +9,24 @@
       ['绵阳', '2', {:'data-search-key' => 'my mianyang'}],
       ['德阳', '3', {:'data-search-key' => 'dy deyang'}],
       ['雅安', '4', {:'data-search-key' => 'ya yaan'}],
-      ['西昌', '5', {:'data-search-key' => 'xc xichang'}],
+      ['西昌', '5', {:'data-search-key' => 'xc xichang'}]
     ]],
     ['广东', [
       ['广州', '6', {:'data-search-key' => 'gz guangzhou'}],
       ['深圳', '7', {:'data-search-key' => 'sz shenzhen'}],
       ['佛山', '8', {:'data-search-key' => 'fs foshan'}],
-      ['东莞', '9', {:'data-search-key' => 'dg dongguan'}],
+      ['东莞', '9', {:'data-search-key' => 'dg dongguan'}]
     ]]
   ] %>
   <fieldset>
     <legend>Select</legend>
     <%= f.input :colors, as: :select, collection: colors %>
-    <%= f.input :city, as: :grouped_select, collection: cities, group_method: :last, group_label_method: :first %>
+    <%#= f.input :city, as: :grouped_select, collection: cities, group_method: :last, group_label_method: :first %>
+    <%= f.input :city, as: :grouped_select, remote: {
+      url: docs_form_cities_path,
+      searchKey: 'name_cont',
+      totalOptionSize: 10
+    } %>
   </fieldset>
 
   <fieldset>
