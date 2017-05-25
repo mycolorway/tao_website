@@ -55,12 +55,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'i18n-debug'
+  gem 'rack-mini-profiler'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# gem 'tao_on_rails', '~> 0.8.0'
+# gem 'tao_on_rails', '~> 0.9.0'
 # gem 'tao_ui', '~> 0.1.1'
 # gem 'tao_form', '~> 0.0.1'
 gem 'tao_on_rails', path: '/Users/farthinker/Sites/tao_on_rails'
