@@ -1,0 +1,30 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+  <h3>Popover</h3>
+
+  <div class="popover-example">
+    <%= link_to '左上角', 'javascript:;', class: 'button button-popover-1' %>
+    <%= link_to '左下角', 'javascript:;', class: 'button button-popover-2' %>
+    <%= link_to '右上角', 'javascript:;', class: 'button button-popover-3' %>
+    <%= link_to '右下角', 'javascript:;', class: 'button button-popover-4' %>
+    <%= link_to '中间', 'javascript:;', class: 'button button-popover-5' %>
+
+    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-1', auto_hide: true do %>
+      lalala
+    <% end %>
+    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-2', auto_hide: true do %>
+      lalala
+    <% end %>
+    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-3', auto_hide: true do %>
+      lalala
+    <% end %>
+    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-4', auto_hide: true do %>
+      lalala
+    <% end %>
+    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-5', auto_hide: true do %>
+      lalala
+    <% end %>
+  </div>
+
+</article>
