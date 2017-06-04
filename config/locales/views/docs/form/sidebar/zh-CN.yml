@@ -7,3 +7,4 @@ zh-CN:
         text_field: 文本字段
         boolean_field: 布尔字段
         select_field: 选择字段
+        date_time_field: 日期时间字段

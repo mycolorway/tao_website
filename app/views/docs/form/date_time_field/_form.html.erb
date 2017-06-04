@@ -1,0 +1,20 @@
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/date_time_field/form'),
+  html: {:class => 'person-form'}, remote: true do |f| %>
+
+  <fieldset>
+    <legend>日期选择</legend>
+    <%= f.input :birthday, as: :date %>
+  </fieldset>
+
+  <fieldset>
+    <legend>时间选择</legend>
+  </fieldset>
+
+  <fieldset>
+    <legend>日期 + 时间</legend>
+  </fieldset>
+
+  <fieldset>
+    <legend>月份</legend>
+  </fieldset>
+<% end %>

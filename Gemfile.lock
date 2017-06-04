@@ -2,6 +2,7 @@ PATH
   remote: /Users/farthinker/Sites/tao_form
   specs:
     tao_form (0.1.0)
+      momentjs-rails (~> 2.17.1)
       simple_form (~> 3.4.0)
       tao_on_rails (~> 0.9.0)
       tao_ui (~> 0.2.0)
@@ -112,6 +113,8 @@ GEM
       mina (~> 0.3, < 1.0)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     mysql2 (0.4.6)
     nio4r (2.0.0)
