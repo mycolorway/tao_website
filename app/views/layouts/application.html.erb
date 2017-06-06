@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag 'desktop/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= content_for(:stylesheet) %>
 
+    <%= include_gon %>
+
     <%= javascript_include_tag 'desktop/application', 'data-turbolinks-track': 'reload' %>
     <%= content_for(:javascript) %>
   </head>

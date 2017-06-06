@@ -8,13 +8,16 @@
 
   <fieldset>
     <legend>时间选择</legend>
+    <%= f.input :birth_time, as: :time %>
   </fieldset>
 
   <fieldset>
     <legend>日期 + 时间</legend>
+    <%= f.input :birth_time, as: :datetime %>
   </fieldset>
 
   <fieldset>
     <legend>月份</legend>
+    <%= f.input :birthday, as: :month %>
   </fieldset>
 <% end %>

@@ -1,6 +1,3 @@
-#= require tao
-#= require action_cable
-#= require_self
 
 class Application extends TaoApplication
 
