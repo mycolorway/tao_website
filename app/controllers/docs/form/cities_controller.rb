@@ -5,7 +5,11 @@ class Docs::Form::CitiesController < ApplicationController
 
     respond_to do |format|
       format.json {
-        @cities = @cities.select {|city| "#{city[:name]} #{city[:pinyin]}".include?(params[:name_cont])}
+        @cities = @cities.select {|city|
+          key = "#{city[:name]} #{city[:pinyin]}".downcase
+          value = params[:name_cont].downcase
+          key.include?(value)
+        }
       }
     end
   end
