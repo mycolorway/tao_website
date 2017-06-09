@@ -4,8 +4,17 @@
   <h2>Tao UI</h2>
 
   <ul>
-    <% %w(basic icons buttons slide_box popover customization).each do |section| %>
-    <li><%= link_to t(".#{section}"), doc_path(path: "ui/#{section}"), class: @doc_path == "ui/#{section}" ? 'active' : '' %></li>
+    <%
+      sections = if request.variant.mobile?
+        %w(basic icons buttons slide_box customization)
+      else
+        %w(basic icons buttons slide_box popover customization)
+      end
+    %>
+    <% sections.each do |section| %>
+    <li>
+      <%= link_to t(".#{section}"), doc_path(path: "ui/#{section}"), class: @doc_path == "ui/#{section}" ? 'active' : '' %>
+    </li>
     <% end %>
   </ul>
 </aside>

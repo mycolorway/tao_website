@@ -18,11 +18,6 @@
     <button class="button button-primary" disabled>主要按钮</button>
   </p>
 
-  <p>
-    <button class="button button-primary-warning">主要警告按钮</button>
-    <button class="button button-primary-warning" disabled>主要警告按钮</button>
-  </p>
-
   <h3>小号按钮</h3>
 
   <p>
@@ -40,35 +35,26 @@
     <%= link_to "主要按钮", '#', class: 'button button-primary button-small disabled' %>
   </p>
 
-  <p>
-    <%= link_to "主要警告按钮", '#', class: 'button button-primary-warning button-small' %>
-    <%= link_to "主要警告按钮", '#', class: 'button button-primary-warning button-small disabled' %>
-  </p>
-
   <h3>图标按钮</h3>
 
   <p>
-    <button class="button">
-      <%= tao_icon :menu %>
+    <button class="button button-icon">
+      <%= tao_icon :more %>
     </button>
-    <button class="button">
-      <%= tao_icon :menu %>
-      普通按钮
+    <button class="button text-with-icon">
+      <%= tao_icon :menu %>普通按钮
     </button>
-    <button class="button" disabled>
-      <%= tao_icon :menu %>
-      普通按钮
+    <button class="button text-with-icon" disabled>
+      <%= tao_icon :loading, class: 'spin' %>普通按钮
     </button>
   </p>
 
   <p>
-    <%= link_to '#', class: 'button button-small' do %>
-      <%= tao_icon :menu %>
-      普通按钮
+    <%= link_to '#', class: 'button button-small text-with-icon' do %>
+      <%= tao_icon :menu %>普通按钮
     <% end %>
-    <%= link_to '#', class: 'button button-small disabled' do %>
-      <%= tao_icon :menu %>
-      普通按钮
+    <%= link_to '#', class: 'button button-small text-with-icon disabled' do %>
+      <%= tao_icon :menu %>普通按钮
     <% end %>
   </p>
 

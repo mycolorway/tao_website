@@ -21,7 +21,7 @@ Tao.Application.initializer 'icons', (app) ->
     return if $('#tao-icons').length > 0
     document.body.insertAdjacentHTML 'afterbegin', """
     <svg id="tao-icons" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
-      \#{Tao.icons}
+      \#{Tao._icons}
     </svg>
     """
 ) %></code></pre>
@@ -42,6 +42,12 @@ rails g tao:icons app
         <%= tao_icon :loading, class: 'spin' %>
       </div>
       <div class="name">loading</div>
+    </div>
+    <div class="icon-example">
+      <div class="wrapper">
+        <%= tao_icon :close %>
+      </div>
+      <div class="name">close</div>
     </div>
   </div>
 

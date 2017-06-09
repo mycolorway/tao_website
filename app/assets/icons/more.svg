@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>More</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="zhiren_icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Main" transform="translate(3.000000, 10.000000)" fill="#9B9B9B">
+            <path d="M9,-3 C10.1045695,-3 11,-3.8954305 11,-5 C11,-6.1045695 10.1045695,-7 9,-7 C7.8954305,-7 7,-6.1045695 7,-5 C7,-3.8954305 7.8954305,-3 9,-3 Z M9,4 C10.1045695,4 11,3.1045695 11,2 C11,0.8954305 10.1045695,7.10542736e-15 9,7.10542736e-15 C7.8954305,7.10542736e-15 7,0.8954305 7,2 C7,3.1045695 7.8954305,4 9,4 Z M9,11 C10.1045695,11 11,10.1045695 11,9 C11,7.8954305 10.1045695,7 9,7 C7.8954305,7 7,7.8954305 7,9 C7,10.1045695 7.8954305,11 9,11 Z" id="More" transform="translate(9.000000, 2.000000) rotate(90.000000) translate(-9.000000, -2.000000) "></path>
+        </g>
+    </g>
+</svg>
