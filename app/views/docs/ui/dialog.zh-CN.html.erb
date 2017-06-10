@@ -1,33 +1,26 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
-  <h3>Slide Box</h3>
+  <h3>Dialog</h3>
 
   <p>
-    <%= link_to "从下到上", 'javascript:;', class: 'button button-slide-box-1' %>
+    <%= link_to "普通", 'javascript:;', class: 'button button-dialog-1' %>
   </p>
-  <%= tao_slide_box direction: 'btt', size: 150, trigger_selector: '.button-slide-box-1', auto_hide: true do %>
+  <%= tao_dialog trigger_selector: '.button-dialog-1' do %>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
   <% end %>
 
   <p>
-    <%= link_to "从上到下", 'javascript:;', class: 'button button-slide-box-2' %>
+    <%= link_to "大号", 'javascript:;', class: 'button button-dialog-2' %>
   </p>
-  <%= tao_slide_box direction: 'ttb', size: 150, trigger_selector: '.button-slide-box-2', auto_hide: true do %>
+  <%= tao_dialog size: 'l', trigger_selector: '.button-dialog-2', modal: true do %>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
   <% end %>
 
   <p>
-    <%= link_to "从左到右", 'javascript:;', class: 'button button-slide-box-3' %>
+    <%= link_to '超大号', 'javascript:;', class: 'button button-dialog-3' %>
   </p>
-  <%= tao_slide_box direction: 'ltr', size: '50%', trigger_selector: '.button-slide-box-3', auto_hide: true do %>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-  <% end %>
-
-  <p>
-    <%= link_to "从右到左", 'javascript:;', class: 'button button-slide-box-4' %>
-  </p>
-  <%= tao_slide_box direction: 'rtl', size: '50%', trigger_selector: '.button-slide-box-4', auto_hide: true do %>
+  <%= tao_dialog size: 'xl', trigger_selector: '.button-dialog-3', modal: true do %>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
   <% end %>
 
