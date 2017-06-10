@@ -60,7 +60,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'tao_on_rails', '~> 0.9.0'
-gem 'tao_ui', '~> 0.2.1'
-gem 'tao_form', '~> 0.1.1'
+gem 'tao_ui', '~> 0.2.2'
+gem 'tao_form', '~> 0.1.2'
 gem 'autoprefixer-rails', '~> 7.0.1'
 gem 'gon', '~> 6.1.0'
