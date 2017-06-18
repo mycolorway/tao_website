@@ -1,13 +1,16 @@
 @import 'desktop/globals';
+@import 'shared/docs/page';
 
 .tao-page.docs main {
-  display: flex;
+  position: relative;
 
   aside {
-    width: 160px;
-    flex: 0 0 auto;
-    margin: 0 2rem 0 0;
+    width: 10rem;
+    // margin: 0 2rem 0 0;
     padding: 0 0 0 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     .link-return {
       color: $lighter-grey-color;
@@ -47,11 +50,6 @@
   }
 
   article {
-    flex: 1 1 auto;
-
-    & > h3 {
-      padding: 0 0 0.5em;
-      border-bottom: 1px solid $border-color;
-    }
+    margin: 0 0 0 12rem;
   }
 }

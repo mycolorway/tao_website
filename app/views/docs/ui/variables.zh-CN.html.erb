@@ -1,0 +1,54 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+
+  <h3>Sass 变量</h3>
+
+  <p>Tao UI 提供了一些全局的 Sass 变量，这些变量可以帮助我们统一 UI 标准，并且提供了一种自定义全局样式的途径。</p>
+
+  <p>你可以在 Tao UI 的仓库里找到这些 Sass 变量：</p>
+
+  <ul>
+    <li><a href="https://github.com/mycolorway/tao_ui/tree/master/lib/assets/stylesheets/tao/ui/variables">tao/ui/variables</a></li>
+    <li><a href="https://github.com/mycolorway/tao_ui/tree/master/lib/assets/stylesheets/tao/ui/shared/variables">tao/ui/shared/variables</a></li>
+    <li><a href="https://github.com/mycolorway/tao_ui/tree/master/lib/assets/stylesheets/tao/ui/mobile/variables">tao/ui/mobile/variables</a></li>
+  </ul>
+
+  <p>我们的项目应该基于这些 Sass 变量，定义自己的全局变量，比如：</p>
+
+<pre><code class="scss"><%= %Q(\
+// lib/assets/stylesheets/_globals.scss
+
+@import 'tao/ui/globals';
+
+$some-other-color: #xxxxxx;
+) %></code></pre>
+
+  <p>其他样式文件应该 import 上面的全局变量：</p>
+
+<pre><code class="scss"><%= %Q(\
+// app/assets/stylesheets/desktop/employees/index_page.scss
+
+@import 'globals';
+
+.some-element {
+  color: $some-other-color;
+}
+) %></code></pre>
+
+  <h3>自定义</h3>
+
+  <p>我们可以通过覆盖 Tao UI 默认的 Sass 变量来自定义一些 UI 样式，比如字体大小、按钮颜色等等。</p>
+
+  <p>你只需要把想覆盖的变量放到 <code>lib/assets/stylesheets/tao/ui/_custom.scss</code> 文件里，比如：</p>
+
+<pre><code class="scss"><%= %Q(\
+// lib/assets/stylesheets/tao/ui/_custom.scss
+
+$ui-color: #xxxxxx;
+$font-size: 0.875rem;
+) %></code></pre>
+
+  <p>Tao UI 会自动 require 这个文件，并且覆盖默认的变量。</p>
+
+</article>

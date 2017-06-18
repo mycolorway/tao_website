@@ -13,7 +13,7 @@
 
   <fieldset>
     <legend>日期 + 时间</legend>
-    <%= f.input :birth_time, as: :datetime %>
+    <%= f.input :birth_time, as: :datetime, input_html: {value: Time.now.strftime('%Y-%m-%dT%T')} %>
   </fieldset>
 
   <fieldset>

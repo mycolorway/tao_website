@@ -4,6 +4,6 @@ zh-CN:
       sidebar:
         return_docs: 返回文档
         basic: 基础样式
+        variables: 变量
         icons: 图标
         buttons: 按钮
-        customization: 自定义

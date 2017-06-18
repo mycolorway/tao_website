@@ -1,4 +1,5 @@
 @import 'mobile/globals';
+@import 'shared/docs/page';
 
 .tao-page.docs main {
   aside {
@@ -36,13 +37,5 @@
   }
 
   article {
-    & > h3 {
-      padding: 0 0 0.5em;
-      border-bottom: 1px solid $border-color;
-    }
-
-    .example-with-border {
-      border: 1px solid $border-color;
-    }
   }
 }

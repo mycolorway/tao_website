@@ -30,6 +30,6 @@
 
   <fieldset>
     <legend>Radio Button Group</legend>
-    <%= f.input :gender, as: :radio_buttons, collection: [:male, :female] %>
+    <%= f.input :gender, as: :radio_buttons, collection: [:male, :female], selected: [:male] %>
   </fieldset>
 <% end %>

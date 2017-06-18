@@ -3,80 +3,158 @@
 <article>
   <h3>标准按钮</h3>
 
-  <p>
-    <button class="button">普通按钮</button>
-    <button class="button" disabled>普通按钮</button>
-  </p>
+  <p>带有 <code>class="button"</code> 的链接和按钮会被渲染成 Tao UI 默认按钮的样式，例如：</p>
 
-  <p>
-    <button class="button button-warning">警告按钮</button>
-    <button class="button button-warning" disabled>警告按钮</button>
-  </p>
+  <div class="example">
 
-  <p>
-    <button class="button button-primary">主要按钮</button>
-    <button class="button button-primary" disabled>主要按钮</button>
-  </p>
+<pre><code class="html"><%= %Q(\
+<button class="button">普通按钮</button>
+<button class="button" disabled>普通按钮</button>\
+) %></code></pre>
+
+    <div class="demo">
+      <button class="button">普通按钮</button>
+      <button class="button" disabled>普通按钮</button>
+    </div>
+  </div>
+
+  <p>Tao UI 还预置了其他常用类型的按钮样式，比如：</p>
+
+  <div class="example">
+
+<pre><code class="html"><%= %Q(\
+<button class="button button-warning">警告按钮</button>
+<button class="button button-warning" disabled>警告按钮</button>
+<button class="button button-primary">主要按钮</button>
+<button class="button button-primary" disabled>主要按钮</button>\
+) %></code></pre>
+
+    <div class="demo">
+      <button class="button button-warning">警告按钮</button>
+      <button class="button button-warning" disabled>警告按钮</button>
+      <button class="button button-primary">主要按钮</button>
+      <button class="button button-primary" disabled>主要按钮</button>
+    </div>
+  </div>
 
   <h3>小号按钮</h3>
 
-  <p>
-    <%= link_to "普通按钮", '#', class: 'button button-small' %>
-    <%= link_to "普通按钮", '#', class: 'button button-small disabled' %>
-  </p>
+  <p>所有类型的按钮都支持小号的样式，只需要添加一个 <code>button-small</code> 的 class：</p>
 
-  <p>
-    <%= link_to "警告按钮", '#', class: 'button button-warning button-small' %>
-    <%= link_to "警告按钮", '#', class: 'button button-warning button-small disabled' %>
-  </p>
+  <div class="example">
+<pre><code class="html"><%= %Q(\
+<button class="button button-small">小号按钮</button>
+<button class="button button-warning button-small">小号警告按钮</button>
+<button class="button button-primary button-small">小号主要按钮</button>\
+) %></code></pre>
 
-  <p>
-    <%= link_to "主要按钮", '#', class: 'button button-primary button-small' %>
-    <%= link_to "主要按钮", '#', class: 'button button-primary button-small disabled' %>
-  </p>
+    <div class="demo">
+      <button class="button button-small">小号按钮</button>
+      <button class="button button-warning button-small">小号警告按钮</button>
+      <button class="button button-primary button-small">小号主要按钮</button>
+    </div>
+
+  </div>
 
   <h3>图标按钮</h3>
 
-  <p>
-    <button class="button button-icon">
-      <%= tao_icon :more %>
-    </button>
-  </p>
+  <p>Tao UI 支持只包含图标的按钮，这是一种特殊的按钮类型：</p>
 
-  <p>
-    <button class="button text-with-icon">
-      <%= tao_icon :menu %>普通按钮
-    </button>
-    <button class="button text-with-icon" disabled>
-      <%= tao_icon :loading, class: 'spin' %>普通按钮
-    </button>
-  </p>
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+<button class="button button-icon">
+  \<%= tao_icon :more %\>
+</button>\
+) %></code></pre>
 
-  <p>
-    <%= link_to '#', class: 'button button-small text-with-icon' do %>
-      <%= tao_icon :menu %>普通按钮
-    <% end %>
-    <%= link_to '#', class: 'button button-small text-with-icon disabled' do %>
-      <%= tao_icon :menu %>普通按钮
-    <% end %>
-  </p>
+    <div class="demo">
+      <button class="button button-icon">
+        <%= tao_icon :more %>
+      </button>
+    </div>
+
+  </div>
+
+  <p>如果想在按钮文案前面添加图标，需要给按钮增加一个 class <code>text-with-icon</code>，例如</p>
+
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+<button class="button text-with-icon">
+  \<%= tao_icon :menu %\>普通按钮
+</button>
+<button class="button text-with-icon" disabled>
+  \<%= tao_icon :loading, class: 'spin' %\>普通按钮
+</button>\
+) %></code></pre>
+
+    <div class="demo">
+      <button class="button text-with-icon">
+        <%= tao_icon :menu %>普通按钮
+      </button>
+      <button class="button text-with-icon" disabled>
+        <%= tao_icon :loading, class: 'spin' %>普通按钮
+      </button>
+    </div>
+
+  </div>
 
   <h3>块级按钮</h3>
 
-  <p>
-    <button class="button button-block">块级按钮</button>
-  </p>
+  <p>如果想让按钮撑满整行，那么需要给按钮增加 class <code>button-block</code>，例如：</p>
 
-  <p>
-    <button class="button button-primary button-block">块级按钮</button>
-  </p>
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+<button class="button button-block">块级按钮</button>
+<button class="button button-primary button-block">块级按钮</button>
+<button class="button button-warning button-block">块级按钮</button>
+<button disabled class="button button-block">块级按钮</button>\
+) %></code></pre>
 
-  <p>
-    <button class="button button-warning button-block">块级按钮</button>
-  </p>
+    <div class="demo">
+      <button class="button button-block">块级按钮</button>
+      <br>
+      <button class="button button-primary button-block">块级按钮</button>
+      <br>
+      <button class="button button-warning button-block">块级按钮</button>
+      <br>
+      <button disabled class="button button-block">块级按钮</button>
+    </div>
 
-  <p>
-    <button disabled class="button button-block">块级按钮</button>
-  </p>
+  </div>
+
+  <h3>自定义</h3>
+
+  <p>Tao UI的按钮提供了一些可供自定义的 <%= link_to 'Sass 变量', 'https://github.com/mycolorway/tao_ui/blob/master/lib/assets/stylesheets/tao/ui/shared/variables/_buttons.scss' %> ，在 <code>_custom.scss</code> 里覆盖这些变量可以自定义按钮的默认样式。</p>
+
+  <p>Tao UI 还提供了一个 Sass mixin <code>button-colors</code>，使用这个 mixin 可以方便的增加新的按钮类型，比如：</p>
+
+<pre><code class="scss"><%= %Q(\
+.button.button-secondary {
+  @include button-colors((
+    normal: (
+      bg: $white-color,
+      text: $light-grey-color,
+      border: transparent
+    ),
+    hover: (
+      bg: $white-color,
+      text: $light-grey-color,
+      border: $light-border-color
+    ),
+    active: (
+      bg: $white-color,
+      text: $grey-color,
+      border: $border-color
+    ),
+    disable: (
+      bg: $white-color,
+      text: $lightest-grey-color,
+      border: $lighter-line-color
+    )
+  ));
+}\
+) %></code></pre>
+
+
 
 </article>

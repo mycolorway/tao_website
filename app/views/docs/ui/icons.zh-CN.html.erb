@@ -1,6 +1,8 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
+  <h3>渲染图标</h3>
+
   <p>Tao UI 使用 inline SVG 图标，可以使用 Icon Component 提供的 helper 方法添加图标： </p>
 
 <pre><code class="erb"><%= %Q(\
@@ -13,7 +15,9 @@
 <svg class="icon icon-edit"><use xlink:href="#icon-edit"/></svg>
 ) %></code></pre>
 
-  <p><code>#icon-edit</code> 引用的 inline SVG symbol 是在 <code>turbolinks:load</code> 的时候通过脚本插入页面的：</p>
+  <h3>编译图标</h3>
+
+  <p>上面 <code>#icon-edit</code> 引用的 inline SVG symbol 是在 <code>turbolinks:load</code> 的时候通过脚本插入页面的：</p>
 
 <pre><code class="coffee"><%= %Q(\
 Tao.Application.initializer 'icons', (app) ->
@@ -32,9 +36,26 @@ Tao.Application.initializer 'icons', (app) ->
 rails g tao:icons app
 ) %></code></pre>
 
-  <p>上面的命令会把<code>app/assets/icons</code>和<code>lib/assets/icons</code>里面的 SVG 源文件编译到<code>lib/assets/javascripts/tao/ui/icons/app.coffee</code>里面，注意你需要手动 require 这个文件。</p>
+  <p>上面的命令会把 <code>app/assets/icons</code> 和 <code>lib/assets/icons</code> 里面的 SVG 源文件编译到 <code>lib/assets/javascripts/tao/ui/icons/app.coffee</code> 里面，注意你需要手动 require 这个文件。</p>
 
-  <h3>默认图标</h3>
+  <p class="tips"><b>Tips:</b>推荐使用 Sketch 批量导出图标的 SVG 文件到相关目录</p>
+
+  <h3>多个图标文件</h3>
+
+  <p>有时候我们需要根据业务场景加载不同的图片文件，比如同一个网站的桌面端和移动端可能需要加载不同图标。</p>
+
+  <p>Tao UI 的 icon generator 提供了一个 <code>paths</code> 选项，用来制定 SVG 源文件的路径，所以我们只需要把 SVG 源文件拆分到不同的文件夹中，比如 <code>app/assets/icons/desktop</code> 和 <code>app/assets/icons/mobile</code>，然后使用 generator 生成两个图标文件：</p>
+
+<pre><code class="bash"><%= %Q(\
+rails g tao:icons desktop --paths=app/assets/icons/desktop
+rails g tao:icons mobile --paths=app/assets/icons/mobile\
+) %></code></pre>
+
+  <p>最后，在桌面端和移动端的 assets package 里面分别 require 这两个图标文件就可以了。</p>
+
+  <h3>图标列表</h3>
+
+  <p>Tao UI 默认提供了下面这些图标：</p>
 
   <div class="default-icons">
     <div class="icon-example">
@@ -51,5 +72,6 @@ rails g tao:icons app
     </div>
   </div>
 
+  <p class="tips"><b>Tips:</b>你可以在自己的项目里自定义上面的图标，只需要将对应的图标编译到 <code>lib/assets/javascripts/tao/ui/icons/base.coffee</code> 文件里。</p>
 
 </article>

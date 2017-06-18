@@ -101,17 +101,17 @@
     </li>
     <li>
       <span class="color" style="background: #dfdfdf;"></span>
-      <code class="variable">$border-color</code>
+      <code class="variable">$border-color/$line-color</code>
       <span class="value">#dfdfdf</span>
     </li>
     <li>
       <span class="color" style="background: #eeeeee;"></span>
-      <code class="variable">$light-border-color</code>
+      <code class="variable">$light-border-color/$light-line-color</code>
       <span class="value">#eeeeee</span>
     </li>
     <li>
       <span class="color" style="background: #f3f3f3;"></span>
-      <code class="variable">$lighter-border-color</code>
+      <code class="variable">$lighter-border-color/$lighter-line-color</code>
       <span class="value">#f3f3f3</span>
     </li>
   </ul>
@@ -119,95 +119,193 @@
   <h3>标题</h3>
 
   <div class="example">
-    <h1>一号标题</h1>
-    <h2>二号标题</h2>
-    <h3>三号标题</h3>
-    <h4>四号标题</h4>
-    <h5>五号标题</h5>
-    <h6>六号标题</h6>
+
+<pre><code class="html"><%= %Q(\
+<h1>一号标题</h1>
+<h2>二号标题</h2>
+<h3>三号标题</h3>
+<h4>四号标题</h4>
+<h5>五号标题</h5>
+<h6>六号标题</h6>
+) %></code></pre>
+
+    <div class="demo">
+      <h1>一号标题</h1>
+      <h2>二号标题</h2>
+      <h3>三号标题</h3>
+      <h4>四号标题</h4>
+      <h5>五号标题</h5>
+      <h6>六号标题</h6>
+    </div>
   </div>
 
   <h3>链接</h3>
 
 
-  <p class="example">
-    <%= link_to "普通链接", '#' %>、<%= link_to '警告链接', '#', class: 'warn' %>、<%= link_to '禁用状态', '#', class: 'disabled' %>
-  </p>
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+\<%= link_to "普通链接", '#' %\>、
+\<%= link_to '警告链接', '#', class: 'warn' %\>、
+\<%= link_to '禁用状态', '#', class: 'disabled' %\>
+) %></code></pre>
+
+    <div class="demo">
+      <%= link_to "普通链接", '#' %>、
+      <%= link_to '警告链接', '#', class: 'warn' %>、
+      <%= link_to '禁用状态', '#', class: 'disabled' %>
+    </div>
+  </div>
 
   <h3>列表</h3>
 
   <div class="example">
-    <ul>
-      <li>
-        列表项 1
-        <ol>
-          <li>列表项 1</li>
-          <li>列表项 2</li>
-          <li>列表项 3</li>
-        </ol>
-      </li>
+<pre><code class="erb"><%= %Q(\
+<ul>
+  <li>
+    列表项 1
+    <ol>
+      <li>列表项 1</li>
       <li>列表项 2</li>
       <li>列表项 3</li>
-    </ul>
+    </ol>
+  </li>
+  <li>列表项 2</li>
+  <li>列表项 3</li>
+</ul>
+) %></code></pre>
+
+    <div class="demo">
+      <ul>
+        <li>
+          列表项 1
+          <ol>
+            <li>列表项 1</li>
+            <li>列表项 2</li>
+            <li>列表项 3</li>
+          </ol>
+        </li>
+        <li>列表项 2</li>
+        <li>列表项 3</li>
+      </ul>
+    </div>
   </div>
 
   <h3>代码</h3>
 
   <div class="example">
-    <p>行内代码 <code>test()</code>、键盘按键 <kbd><kbd>Cmd</kbd> + <kbd>C</kbd></kbd></p>
+<pre><code class="erb"><%= %Q(\
+行内代码： <code>test()</code>、键盘按键： <kbd><kbd>Cmd</kbd> + <kbd>C</kbd></kbd>
+) %></code></pre>
 
-    <pre><code class="coffee"><%= %Q(\
+    <div class="demo">
+      行内代码： <code>test()</code>、键盘按键： <kbd><kbd>Cmd</kbd> + <kbd>C</kbd></kbd>
+    </div>
+  </div>
+
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+<pre><code class="coffee">\<%= %Q(\\
+class TodoItem extends TaoComponent
+
+@tag 'tao-todo-item'
+
+@attribute 'completed', type: 'boolean', default: false
+
+TaoComponent.register TodoItem
+) %\></code></pre>
+) %></code></pre>
+
+    <div class="demo">
+<pre><code class="coffee"><%= %Q(\
 class TodoItem extends TaoComponent
 
   @tag 'tao-todo-item'
 
   @attribute 'completed', type: 'boolean', default: false
 
-  _connected: ->
-    @on 'change', '.todo-checkbox', (e) =>
-      @completed = $(e.currentTarget).is(':checked')
-
 TaoComponent.register TodoItem
 ) %></code></pre>
+    </div>
   </div>
+
 
   <h3>引用</h3>
 
   <div class="example">
-    <blockquote>
-      <p>知人，智能人力资源管理专家</p>
-    </blockquote>
+<pre><code class="erb"><%= %Q(\
+<blockquote>
+  <p>知人，智能人力资源管理专家</p>
+</blockquote>
+) %></code></pre>
+
+    <div class="demo">
+      <blockquote>
+        <p>知人，智能人力资源管理专家</p>
+      </blockquote>
+    </div>
   </div>
+
 
   <h3>表格</h3>
 
   <div class="example">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>姓名</th>
-          <th>工号</th>
-          <th>部门</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>多发</td>
-          <td>001</td>
-          <td>知人</td>
-        </tr>
-        <tr>
-          <td>小五</td>
-          <td>002</td>
-          <td>知人</td>
-        </tr>
-        <tr>
-          <td>仁波切</td>
-          <td>003</td>
-          <td>知人</td>
-        </tr>
-      </tbody>
-    </table>
+<pre><code class="erb"><%= %Q(\
+<table class="table">
+  <thead>
+    <tr>
+      <th>姓名</th>
+      <th>工号</th>
+      <th>部门</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>多发</td>
+      <td>001</td>
+      <td>知人</td>
+    </tr>
+    <tr>
+      <td>小五</td>
+      <td>002</td>
+      <td>知人</td>
+    </tr>
+    <tr>
+      <td>仁波切</td>
+      <td>003</td>
+      <td>知人</td>
+    </tr>
+  </tbody>
+</table>
+) %></code></pre>
+
+    <div class="demo <%= 'without-padding' if request.variant.mobile? %>">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>工号</th>
+            <th>部门</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>多发</td>
+            <td>001</td>
+            <td>知人</td>
+          </tr>
+          <tr>
+            <td>小五</td>
+            <td>002</td>
+            <td>知人</td>
+          </tr>
+          <tr>
+            <td>仁波切</td>
+            <td>003</td>
+            <td>知人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </article>

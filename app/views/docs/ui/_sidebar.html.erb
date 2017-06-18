@@ -6,9 +6,9 @@
   <ul>
     <%
       sections = if request.variant.mobile?
-        %w(basic icons buttons slide_box customization)
+        %w(basic variables icons buttons slide_box)
       else
-        %w(basic icons buttons slide_box popover dialog customization)
+        %w(basic variables icons buttons slide_box popover dialog)
       end
     %>
     <% sections.each do |section| %>
