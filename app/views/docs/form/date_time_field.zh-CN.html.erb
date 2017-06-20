@@ -1,10 +1,169 @@
 <%= render 'docs/form/sidebar' %>
 
-<article>
-  <h3>时间日期字段</h3>
+<% person = Doc::Form::Person.new %>
 
-  <div class="example example-with-border">
-    <%= render 'docs/form/date_time_field/form', person: Doc::Form::Person.new %>
+<article>
+  <p>Tao Form 提供日期、时间、日期 + 时间和月份四种时间相关字段。</p>
+
+  <h3>日期选择</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :birthday, as: :date %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :birthday, as: :date %>
+      <% end %>
+    </div>
   </div>
+
+  <h3>时间选择</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :birth_time, as: :time %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :birth_time, as: :time %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>日期 + 时间选择</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :birth_time, as: :datetime, input_html: {value: Time.now.strftime('%Y-%m-%dT%T')} %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :birth_time, as: :datetime, input_html: {value: Time.now.strftime('%Y-%m-%dT%T')} %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>月份选择</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :birthday, as: :month %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :birthday, as: :month %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>组件</h3>
+
+  <p>日期时间组件可以脱离 input 作为单独的字段渲染，例如</p>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= tao_date_picker f, :birthday, {placeholder: '选择生日'}, {class: 'date-field'} %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= tao_date_picker f, :birthday, {placeholder: '选择生日'}, {class: 'date-field'} %>
+      <% end %>
+    </div>
+  </div>
+
+  <p>也可以脱离表单使用，例如：</p>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_date_picker placeholder: '选择生日' do %\>
+  \<%= date_field_tag :birthday, '', class: 'date-field' %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_date_picker placeholder: '选择生日' do %>
+        <%= date_field_tag :birthday, '', class: 'date-field' %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>初始化选项</h3>
+
+  <p>日期、时间和月份选择组件的属性：</p>
+
+  <%= tao_api_item name: 'value_format', tags: ['String'] do %>
+    <p>指定字段 value 的格式，日期、时间和月份字段的默认 value 格式分别是：<code>YYYY-MM-DD</code> <code>HH:mm:ss</code> <code>YYYY-MM</code>。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'display_format', tags: ['String'] do %>
+    <p>指定组件选择结果的格式，日期、时间和月份字段的默认选择结果格式分别是：<code>YYYY-MM-DD</code> <code>HH:mm</code> <code>YYYY-MM</code>。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'placeholder', tags: ['String'] do %>
+    <p>指定组件的未选择状态提示文案，默认的文案在组件的 locale 配置里。</p>
+  <% end %>
+
+  <p>日期 + 时间选择组件的属性：</p>
+
+  <%= tao_api_item name: 'value_format', tags: ['Number', 'Default: "YYYY-MM-DDTHH:mm:s"'] do %>
+    <p>指定日期时间字段 value 的格式。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'date_display_format', tags: ['String', 'YYYY-MM-DD'] do %>
+    <p>指定日期子组件的选择结果格式。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'time_display_format', tags: ['String', 'YYYY-MM-DD'] do %>
+    <p>指定时间子组件的选择结果格式。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'date_placeholder', tags: ['String'] do %>
+    <p>指定日期子组件的未选择状态提示文案，默认文案在日期组件的 locale 配置里。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'time_placeholder', tags: ['String'] do %>
+    <p>指定时间子组件的未选择状态提示文案，默认文案在时间组件的 locale 配置里。</p>
+  <% end %>
+
+  <p>时间组件独有的属性：</p>
+
+  <%= tao_api_item name: 'minute-step', tags: ['Number', 'Default: 5'] do %>
+    <p>指定分钟选择视图里，分钟选项的间隔。例如，当 <code>minute_step</code> 设置为15的时候，分钟选项会有：0、15、30、45。</p>
+  <% end %>
+
+
+  <h3>公共方法</h3>
+
+  <%= tao_api_item name: 'setMoment', params: ['m'], tags: ['Reture: moment object'] do %>
+    <p>设置组件的当前选择的时间。参数 <code>m</code> 可以是 String 或者 moment 对象。</p>
+  <% end %>
+
+  <h3>事件</h3>
+
+  <%= tao_api_item name: 'tao:change', params: ['m'] do %>
+    <p>当组件选择的时间发生变化时触发。回调方法接收一个 moment 对象作为参数。</p>
+  <% end %>
 
 </article>

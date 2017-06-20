@@ -1,6 +1,9 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
+
+  <p></p>
+
   <h3>字体</h3>
 
   <h4>字体类型</h4>
@@ -278,7 +281,7 @@ TaoComponent.register TodoItem
 </table>
 ) %></code></pre>
 
-    <div class="demo <%= 'without-padding' if request.variant.mobile? %>">
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
       <table class="table">
         <thead>
           <tr>

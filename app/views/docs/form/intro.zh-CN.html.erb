@@ -1,36 +1,81 @@
 <%= render 'docs/form/sidebar' %>
 
 <article>
+  <p>Tao Form 是 Tao UI 在表单方面的扩展和补充，它提供了统一的表单样式和交互，以及一套具有优秀体验和兼容性的基础表单字段组件。</p>
+
+  <h3>基础用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, html: {class: 'person-form', success_message: '添加成功'}, remote: true do |f| %\>
+  \<%= f.input :name, hint: '给自己起一个帅气的名字' %\>
+  \<%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %\>
+
+  <div class="form-buttons">
+    \<%= f.button :button, data: {disable_with: '正在添加'}, class: 'button-primary' %\>
+  </div>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= render 'docs/form/intro/form', person: Doc::Form::Person.new %>
+    </div>
+  </div>
+
+
   <h3>Simple Form</h3>
 
-  <p>Tao Form 依赖 <%= link_to "Simple Form", 'https://github.com/plataformatec/simple_form' %> 来实现表单的基础结构，Tao Form 的默认配置位于：<%= link_to 'config/initializers/simple_form.rb', 'https://github.com/mycolorway/tao_form/blob/master/config/initializers/simple_form.rb' %>，你可以在项目中通过创建相同的 <code>initializer</code> 来覆盖 Tao Form 的配置： </p>
+  <p>Tao Form 依赖 <%= link_to "Simple Form", 'https://github.com/plataformatec/simple_form' %> 来实现表单的基础结构，Tao Form 的默认配置位于：<%= link_to 'config/initializers/simple_form.rb', 'https://github.com/mycolorway/tao_form/blob/master/config/initializers/simple_form.rb' %>，你可以在项目中通过创建相同的 <code>initializer</code> 来覆盖 Tao Form 的配置，例如： </p>
 
   <pre><code class="ruby"><%= %Q(\
 # config/initializers/simple_form.rb
 
 SimpleForm.setup do |config|
-
   # input wrapper for desktop form
   config.wrappers :tao_default do |b|
-
     ...
-
   end
 
   # input wrapper for mobile form
   config.wrappers :tao_mobile do |b|
-
     ...
-
   end
-
 end
 ) %></code></pre>
 
-  <h3>提示和验证信息</h3>
+  <h3>提示信息</h3>
 
-  <div class="example example-with-border">
-    <%= render 'docs/form/intro/form', person: Doc::Form::Person.new %>
-  </div>
+  <p>除了 Simple Form 默认支持的 <code>hint</code> Tao Form 还增加了一种表单字段的提示信息 <code>bottom_hint</code>。</p>
+
+  <p>在桌面浏览器中，<code>hint</code> 提示会出现在字段的右边，当鼠标 hover 字段或者字段获取焦点的时候显示，<code>bottom_hint</code> 会始终显示在字段的下方。</p>
+
+  <p>在移动浏览器中，<code>hint</code> 和 <code>bottom_hint</code> 会统一显示在字段的下方。</p>
+
+  <h3>表单验证</h3>
+
+  <p>目前，Tao Form 的表单验证统一由后端的 model 来做。表单提交之后，如果验证未通过，那么应该在 SJR 响应中重新渲染表单，重新渲染的表单会自动带有验证失败的错误信息：</p>
+
+<pre><code class="erb"><%= %Q(\
+\<% if @person.errors.any? %\>
+  $('.person-form').replaceWith('\<%= j render 'form', person: @person %\>');
+\<% else %\>
+  Turbolinks.visit('\<%= person_path @person %\>');
+\<% end %\>
+) %></code></pre>
+
+  <p class="tips">Tips：SJR 响应的模版建议由 ES5 来编写，后缀名是 <code>.js.erb</code>；如果采用 CoffeeScript 或者 ES6 来编写，编译过程会增加很多不必要的模版渲染时间，降低请求的响应速度。</p>
+
+  <h3>提交成功提示</h3>
+
+  <p>Tao Form 支持在表单提交成功的时候在按钮位置显示一个提交成功的提示，只需要给组件设置一个 html 属性 <code>success_message</code>，例如：</p>
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, html: {success_message: '添加成功'}, remote: true do |f| %\>
+  ...
+\<% end %\>
+) %></code></pre>
+
+
 
 </article>

@@ -1,10 +1,63 @@
 <%= render 'docs/form/sidebar' %>
 
-<article>
-  <h3>文本字段</h3>
+<% person = Doc::Form::Person.new %>
 
-  <div class="example example-with-border">
-    <%= render 'docs/form/text_field/form', person: Doc::Form::Person.new %>
+<article>
+
+  <h3>普通文本</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :name %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :name %>
+      <% end %>
+    </div>
   </div>
+
+  <h3>前缀和后缀</h3>
+
+  <p>Tao Form 重写了 SimpleForm 的 String Input，增加了 <code>prefix</code> 和 <code>suffix</code> 两个选项，分别支持给文本字段添加前缀和后缀，例如：</p>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :nickname, prefix: tao_icon(:menu) %\>
+  \<%= f.input :age, as: :integer, suffix: '岁' %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :nickname, prefix: tao_icon(:menu) %>
+        <%= f.input :age, as: :integer, suffix: '岁' %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>大段文本</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= f.input :comment, as: :text %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= f.input :comment, as: :text %>
+      <% end %>
+    </div>
+  </div>
+
 
 </article>

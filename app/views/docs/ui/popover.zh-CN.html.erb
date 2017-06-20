@@ -1,30 +1,109 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
-  <h3>Popover</h3>
 
-  <div class="popover-example">
-    <%= link_to '左上角', 'javascript:;', class: 'button button-popover-1' %>
-    <%= link_to '左下角', 'javascript:;', class: 'button button-popover-2' %>
-    <%= link_to '右上角', 'javascript:;', class: 'button button-popover-3' %>
-    <%= link_to '右下角', 'javascript:;', class: 'button button-popover-4' %>
-    <%= link_to '中间', 'javascript:;', class: 'button button-popover-5' %>
+  <p>Popover 是基于 Tao Component 的气泡容器组件。</p>
 
-    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-1', auto_hide: true do %>
-      lalala
-    <% end %>
-    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-2', auto_hide: true do %>
-      lalala
-    <% end %>
-    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-3', auto_hide: true do %>
-      lalala
-    <% end %>
-    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-4', auto_hide: true do %>
-      lalala
-    <% end %>
-    <%= tao_popover boundary_selector: '.popover-example', target_selector: '.button-popover-5', auto_hide: true do %>
-      lalala
-    <% end %>
+  <h3>用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= link_to 'Hover Me', 'javascript:;', class: 'button button-popover' %\>
+
+\<%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
+   auto_hide: true, size: 200 do %\>
+   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo popover-demo">
+      <%= link_to '点我', 'javascript:;', class: 'button button-popover' %>
+
+      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
+        auto_hide: true, size: 200  do %>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
+      <% end %>
+    </div>
   </div>
+
+  <h3>初始化选项</h3>
+
+  <%= tao_api_item name: 'active', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定 Popover 的显示状态。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'auto_hide', tags: ['Boolean', 'Default: false'] do %>
+    <p>在 Popover 处于显示状态的时候，是否允许 Popover 以外的点击操作自动隐藏 Popover。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'auto_destroy', tags: ['Boolean', 'Default: false'] do %>
+    <p>是否在隐藏 Popover 的时候自动移除组件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'target_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
+    <p>通过 CSS Selector 指定一个元素作为 Popover 指向的目标。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'target_traversal', tags: ['String', 'jQuery traversing method', 'Default: ""'] do %>
+    <p>配合 <code>trigger_selector</code> 属性来使用，通过指定的 jQuery traversing method（例如：next、prev等）来寻找目标元素。默认会从整个 DOM 树中寻找目标元素。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'trigger_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
+    <p>通过 CSS Selector 指定一个元素，在点击（或者 hover，具体由 <code>trigger_action</code> 属性决定）这个元素时，会切换 Popover 的显示状态。默认会将 Popover 指向的目标元素作为 triiger 元素。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'trigger_traversal', tags: ['String', 'jQuery traversing method', 'Default: ""'] do %>
+    <p>配合 <code>trigger_selector</code> 属性来使用，通过指定的 jQuery traversing method（例如：next、prev等）来寻找 trigger 元素。默认会从整个 DOM 树中寻找 trigger 元素。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'boundary_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
+    <p>通过 CSS Selector 指定一个元素，Popver 自动计算显示位置的时候会保证不会超出这个容器的范围。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'direction', tags: ['String', 'Default: ""'] do %>
+    <p>
+      指定 Popover 显示的方向，一共支持 12 个方向：<code>left-top</code> <code>left-middle</code>
+      <code>left-bottom</code> <code>right-top</code> <code>right-middle</code> <code>right-bottom</code>
+      <code>top-left</code> <code>top-center</code> <code>top-right</code> <code>bottom-left</code>
+      <code>bottom-center</code> <code>bottom-right</code>。默认会自动计算 Popover 显示的方向。
+    </p>
+  <% end %>
+
+  <%= tao_api_item name: 'size', tags: ['String / Number'] do %>
+    <p>指定 Popover 的宽度，支持所有的 CSS 长度（包括百分比）。</p>
+  <% end %>
+
+  <h3>公共方法</h3>
+
+  <%= tao_api_item name: 'refresh', params: [], tags: ['Return: self'] do %>
+    <p>重新计算 Popover 的位置。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'toggleActive', params: [], tags: ['Return: self'] do %>
+    <p>切换 Popover 的显示/隐藏状态。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'remove', params: [], tags: ['Return: self'] do %>
+    <p>从 DOM 树中移除 Popover 组件。</p>
+  <% end %>
+
+  <h3>事件</h3>
+
+  <%= tao_api_item name: 'tao:show' do %>
+    <p>Popover 显示之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:hide' do %>
+    <p>Popover 隐藏之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:beforeRemove' do %>
+    <p>从 DOM 树中移除 Popover 之前触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:remove' do %>
+    <p>从 DOM 树中移除 Popover 之后触发。</p>
+  <% end %>
 
 </article>

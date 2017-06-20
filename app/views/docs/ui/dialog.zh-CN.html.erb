@@ -1,27 +1,88 @@
 <%= render 'docs/ui/sidebar' %>
 
 <article>
-  <h3>Dialog</h3>
+  <p>Dialog 是基于 Tao Component 的弹框容器组件。</p>
 
-  <p>
-    <%= link_to "普通", 'javascript:;', class: 'button button-dialog-1' %>
-  </p>
-  <%= tao_dialog trigger_selector: '.button-dialog-1' do %>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  <h3>用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= link_to '点我弹框', 'javascript:;', class: 'button button-dialog' %\>
+\<%= tao_dialog size: 'l', trigger_selector: '.button-dialog', modal: true do %\>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo">
+      <%= link_to '点我弹框', 'javascript:;', class: 'button button-dialog' %>
+      <%= tao_dialog size: 'l', trigger_selector: '.button-dialog', modal: true do %>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>初始化选项</h3>
+
+  <%= tao_api_item name: 'active', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定 Dialog 的显示状态，切换显示状态的时候会有 transition 动画。</p>
   <% end %>
 
-  <p>
-    <%= link_to "大号", 'javascript:;', class: 'button button-dialog-2' %>
-  </p>
-  <%= tao_dialog size: 'l', trigger_selector: '.button-dialog-2', modal: true do %>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  <%= tao_api_item name: 'with_close_button', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定是否在 Dialog 里显示关闭链接。</p>
   <% end %>
 
-  <p>
-    <%= link_to '超大号', 'javascript:;', class: 'button button-dialog-3' %>
-  </p>
-  <%= tao_dialog size: 'xl', trigger_selector: '.button-dialog-3', modal: true do %>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+  <%= tao_api_item name: 'modal', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定是否在 Dialog 显示的时候渲染一个半透明的遮罩背景。</p>
   <% end %>
+
+  <%= tao_api_item name: 'auto_activate', tags: ['Boolean', 'Default: false'] do %>
+    <p>在 Dialog 被添加到 DOM 树之后，自动设置为显示状态（会出现 transition 动画）。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'auto_destroy', tags: ['Boolean', 'Default: false'] do %>
+    <p>是否在关闭 Dialog 的时候自动移除组件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'trigger_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
+    <p>通过 CSS Selector 指定一个元素（通常是一个按钮或者链接），当点击这个元素的时候会显示 Dialog。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'trigger_traversal', tags: ['String', 'jQuery traversing method', 'Default: ""'] do %>
+    <p>配合 <code>trigger_selector</code> 属性来使用，通过指定的 jQuery traversing method（例如：next、prev等）来寻找 trigger 元素。默认会从整个 DOM 树中寻找 trigger 元素。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'size', tags: ['String / Number', 'CSS length value'] do %>
+    <p>指定 Slide Box 的大小，支持所有的 CSS 长度（包括百分比），以及两个预定义的大小：l（860px）和 xl（1140px）。</code></p>
+  <% end %>
+
+  <h3>公共方法</h3>
+
+  <%= tao_api_item name: 'setContent', params: ['content'], tags: ['Return: self'] do %>
+    <p>重新设置 Dialog 的内容，<code>content</code> 可以是 jQuery <code>.append()</code> 方法接受的所有类型的参数。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'remove', params: [], tags: ['Return: self'] do %>
+    <p>从 DOM 树中移除 Dialog 组件。</p>
+  <% end %>
+
+  <h3>事件</h3>
+
+  <%= tao_api_item name: 'tao:show' do %>
+    <p>Dialog 显示之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:hide' do %>
+    <p>Dialog 隐藏之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:beforeRemove' do %>
+    <p>从 DOM 树中移除 Dialog 之前触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:remove' do %>
+    <p>从 DOM 树中移除 Dialog 之后触发。</p>
+  <% end %>
+
 
 </article>

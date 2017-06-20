@@ -1,3 +1,3 @@
 #= require tao/form/mobile
-#= require components
+#= require shared/components
 #= require_tree .

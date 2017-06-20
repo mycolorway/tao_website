@@ -54,6 +54,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'i18n-debug'
   gem 'rack-mini-profiler'
+  gem 'flamegraph'
+  gem 'stackprof'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

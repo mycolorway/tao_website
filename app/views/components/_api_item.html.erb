@@ -1,11 +1,20 @@
 <%= content_tag component.tag_name, component.html_options do %>
-  <div class="name"><%= component.name %></div>
-  <% if component.params %>
-    <div class="params"></div>
-  <% end %>
-  <% if component.tags && component.tags.size > 0 %>
-    <% component.tags.each do |tag| %>
-      <div class="tag"><%= tag %></div>
+  <div class="api-title">
+    <div class="name"><%= component.name %></div>
+    <% if component.params %>
+      <div class="params">
+        ( <%= component.params.map {|param| "<span class=\"param\">#{param}</span>"}.join(', ').html_safe %> )
+      </div>
     <% end %>
-  <% end %>
+    <% if component.tags %>
+      <div class="tags">
+        <% component.tags.each do |tag| %>
+          <div class="tag"><%= tag %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="api-content">
+    <%= yield if block_given? %>
+  </div>
 <% end %>

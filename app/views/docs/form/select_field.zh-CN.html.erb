@@ -1,10 +1,154 @@
 <%= render 'docs/form/sidebar' %>
 
-<article>
-  <h3>选择字段</h3>
+<% person = Doc::Form::Person.new %>
 
-  <div class="example example-with-border">
-    <%= render 'docs/form/select_field/form', person: Doc::Form::Person.new %>
+<article>
+
+  <p>Tao Form 提供单选和多选两种选择字段，并且支持远程搜索选项。</p>
+
+  <h3>单选</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %\>
+  \<%= f.input :colors, as: :select, collection: colors, selected: 'blue' %\>
+  \<%= f.input :city, as: :grouped_select, remote: {
+     url: docs_form_cities_path,
+     searchKey: 'name_cont',
+     totalOptionSize: 10
+   } %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %>
+        <%= f.input :colors, as: :select, collection: colors, selected: 'blue' %>
+        <%= f.input :city, as: :grouped_select, remote: {
+          url: docs_form_cities_path,
+          searchKey: 'name_cont',
+          totalOptionSize: 10
+        } %>
+      <% end %>
+    </div>
   </div>
+
+
+  <h3>多选</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %\>
+  \<%= f.input :colors, as: :select, collection: colors, multiple: true, selected: ['red', 'blue'] %\>
+  \<%= f.input :city, as: :grouped_select, multiple: true, remote: {
+     url: docs_form_cities_path,
+     searchKey: 'name_cont',
+     totalOptionSize: 10
+   } %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %>
+        <%= f.input :colors, as: :select, collection: colors, multiple: true, selected: ['red', 'blue'] %>
+        <%= f.input :city, as: :grouped_select, multiple: true, remote: {
+          url: docs_form_cities_path,
+          searchKey: 'name_cont',
+          totalOptionSize: 10
+        } %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>组件</h3>
+
+  <p>选择组件可以脱离 input 作为单独的字段渲染，例如</p>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+  \<%= tao_select f, :colors, [:red, :blue], {include_blank: '选择颜色'}, {class: 'select-field'} %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+        <%= tao_select f, :colors, [:red, :blue], {include_blank: '选择颜色'}, {class: 'select-field'} %>
+      <% end %>
+    </div>
+  </div>
+
+  <p>也可以脱离表单使用，例如：</p>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_select clearable: true, placeholder: '选择颜色' do %\>
+  \<%= select_tag :colors, options_for_select(['red', 'blue']), include_blank: true %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_select clearable: true, placeholder: '选择颜色' do %>
+        <%= select_tag :colors, options_for_select(['red', 'blue']), include_blank: true %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>初始化选项</h3>
+
+  <%= tao_api_item name: 'multiple', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定是否是多选组件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'remote', tags: ['Hash', 'Default: null'] do %>
+    <p>如果想让选择组件通过远程接口搜索选项，那么需要给 <code>remote</code> 属性传入相关配置：</p>
+<pre><code class="js"><%= %Q(\
+{
+  url: '' // 远程接口的地址
+  params: {} // 发起搜索请求时附带的参数
+  searchKey: '' // 搜索参数的key，value是搜索框中输入的内容
+  totalOptionSize: 0 // 可搜索的选项总数
+}
+) %></code></pre>
+  <% end %>
+
+  <%= tao_api_item name: 'max_list_size', tags: ['Number', 'Default: 20'] do %>
+    <p>指定下拉列表中显示选项数量的上限，超过上限的选项会被隐藏。这个属性会直接渲染到子组件 <code>tao_select_list</code> 上，不会出现在 <code>tao-select</code> 上面。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'searchable_size', tags: ['Number', 'Default: 8'] do %>
+    <p>仅在单选组件中有效，指定到选项数量超过多少的时候显示搜索框。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'clearable', tags: ['Boolean', 'Default: null'] do %>
+    <p>仅在单选组件中有效，指定是否可以清除已经选择的值。默认情况下选择组件会通过 <code>include_blank</code> 和 <code>prompt</code> 选项的值来自动计算 <code>clearable</code> 的值。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'placeholder', tags: ['String', 'Default: ""'] do %>
+    <p>仅在单选组件中有效，指定未选择状态下的提示文案。默认情况下选择组件会通过 <code>include_blank</code> 和 <code>prompt</code> 选项的值来自动计算 <code>placeholder</code> 的值。</p>
+  <% end %>
+
+  <h3>公共方法</h3>
+
+  <%= tao_api_item name: 'selectOption', params: ['option'], tags: ['Return: true / false'] do %>
+    <p>选择对应的选项。参数 option 是选项对应的 value。如果成功找到对应的选项并选中方法会返回 true，否则返回 false。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'unselectOption', params: ['option'], tags: ['Return: true / false'] do %>
+    <p>取消选择对应的选项。参数 option 是选项对应的 value。如果成功找到对应的选项并取消选择方法会返回 true，否则返回 false。</p>
+  <% end %>
+
+  <h3>事件</h3>
+
+  <%= tao_api_item name: 'tao:change', params: ['option'] do %>
+    <p>当组件的已选择选项发生变化时触发，回调方法接受一个 option 参数，option 是 Tao.Form.Select.Option 类的实例，有 <code>test</code> <code>value</code> 和 <code>data</code> 三个属性。</p>
+  <% end %>
 
 </article>

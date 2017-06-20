@@ -1,7 +1,7 @@
 ---
 zh-CN:
   tao: 道
-  slogan: 专门为 Rails 项目设计的前端框架
+  slogan: 专为 Rails 项目设计的前端框架
 
   activerecord:
     errors:

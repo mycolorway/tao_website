@@ -1,0 +1,48 @@
+tao-api-item {
+  display: block;
+  margin: 0 0 1.5em 0;
+
+  .api-title {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    margin: 0 0 0.5em 0;
+
+    .name {
+      font-weight: bold;
+      font-size: $font-size-l;
+      line-height: 1.5rem;
+      margin: 0 0.5rem 0 0;
+    }
+
+    .params {
+      margin: 0 0.5rem 0 0;
+      font-size: $font-size-s;
+      line-height: 1.5rem;
+      color: $lightest-grey-color;
+
+      .param {
+        color: $text-color
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      .tag {
+        background: $grey-bg-color;
+        border-radius: $border-radius;
+        font-size: $font-size-xs;
+        color: $lighter-grey-color;
+        padding: 0.25em 0.75em;
+        margin: 0 0.5rem 0 0 ;
+      }
+    }
+
+  }
+
+  .api-content {
+
+  }
+}
