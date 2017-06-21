@@ -17,9 +17,9 @@
 ) %></code></pre>
 
     <div class="demo">
-      <%= link_to "从左到右", 'javascript:;', class: 'button button-slide-box-3' %>
+      <%= link_to "从左到右", 'javascript:;', class: 'button button-slide-box' %>
 
-      <%= tao_slide_box direction: 'ltr', size: '50%', trigger_selector: '.button-slide-box-3', auto_hide: true do %>
+      <%= tao_slide_box direction: 'ltr', size: '50%', modal: true, trigger_selector: '.button-slide-box', auto_hide: true do %>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget.</p>
       <% end %>
     </div>
@@ -29,6 +29,10 @@
 
   <%= tao_api_item name: 'active', tags: ['Boolean', 'Default: false'] do %>
     <p>指定 Slide Box 的显示状态，切换显示状态的时候会有 transition 动画。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'modal', tags: ['Boolean', 'Default: false'] do %>
+    <p>指定是否在 Slide Box 显示的时候渲染一个半透明的遮罩背景。</p>
   <% end %>
 
   <%= tao_api_item name: 'with_close_button', tags: ['Boolean', 'Default: false'] do %>

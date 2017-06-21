@@ -73,13 +73,13 @@
 
 <pre><code class="erb"><%= %Q(\
 \<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
-  \<%= tao_select f, :colors, [:red, :blue], {include_blank: '选择颜色'}, {class: 'select-field'} %\>
+  \<%= tao_select f, :colors, [:red, :blue], include_blank: '选择颜色', class: 'select-field' %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
       <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
-        <%= tao_select f, :colors, [:red, :blue], {include_blank: '选择颜色'}, {class: 'select-field'} %>
+        <%= tao_select f, :colors, [:red, :blue], include_blank: '选择颜色', class: 'select-field' %>
       <% end %>
     </div>
   </div>
@@ -133,6 +133,18 @@
 
   <%= tao_api_item name: 'placeholder', tags: ['String', 'Default: ""'] do %>
     <p>仅在单选组件中有效，指定未选择状态下的提示文案。默认情况下选择组件会通过 <code>include_blank</code> 和 <code>prompt</code> 选项的值来自动计算 <code>placeholder</code> 的值。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'include_blank', tags: ['Boolean / String', 'Default: false'] do %>
+    <p>跟 Rails 的 <code>select_tag</code> 方法的 <code>include_blank</code> 相同。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'prompt', tags: ['Boolean / String', 'Default: false'] do %>
+    <p>跟 Rails 的 <code>select_tag</code> 方法的 <code>prompt</code> 相同。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'disabled', tags: ['Boolean'] do %>
+    <p>指定组件的禁用状态。</p>
   <% end %>
 
   <h3>公共方法</h3>
