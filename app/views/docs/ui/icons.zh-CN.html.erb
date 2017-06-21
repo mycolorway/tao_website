@@ -42,9 +42,9 @@ rails g tao:icons app
 
   <h3>多个图标文件</h3>
 
-  <p>有时候我们需要根据业务场景加载不同的图片文件，比如同一个网站的桌面端和移动端可能需要加载不同图标。</p>
+  <p>有时候我们需要根据业务场景加载不同的图标文件，比如同一个网站的桌面端和移动端可能需要加载不同图标。</p>
 
-  <p>Tao UI 的 icon generator 提供了一个 <code>paths</code> 选项，用来制定 SVG 源文件的路径，所以我们只需要把 SVG 源文件拆分到不同的文件夹中，比如 <code>app/assets/icons/desktop</code> 和 <code>app/assets/icons/mobile</code>，然后使用 generator 生成两个图标文件：</p>
+  <p>Tao UI 的 icon generator 提供了一个 <code>paths</code> 选项，用来指定 SVG 源文件的路径，所以我们只需要把 SVG 源文件拆分到不同的文件夹中，比如 <code>app/assets/icons/desktop</code> 和 <code>app/assets/icons/mobile</code>，然后使用 generator 生成两个图标文件：</p>
 
 <pre><code class="bash"><%= %Q(\
 rails g tao:icons desktop --paths=app/assets/icons/desktop

@@ -9,4 +9,10 @@
 
 class MobileApplication extends Application
 
+  _init: ->
+    super
+
+    # enable :active style for interactable elements
+    document.addEventListener('touchstart', (-> {}), true)
+
 window.app = new MobileApplication
