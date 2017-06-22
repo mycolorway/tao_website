@@ -20,9 +20,28 @@
     <div class="demo popover-demo">
       <%= link_to '点我', 'javascript:;', class: 'button button-popover' %>
 
-      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
-        auto_hide: true, size: 200  do %>
+      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200  do %>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
+      <% end %>
+    </div>
+  </div>
+
+  <h3>Confirm Popover</h3>
+
+  <p>Tao UI 还提供了一个 Popover 的衍生组件，确认气泡（Confirm Popover）：</p>
+
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+\<%= link_to 'Confirm Popover', 'javascript:;', class: 'button button-confirm-popover' %\>
+\<%= tao_confirm_popover target_selector: '.button-confirm-popover' do %\>
+  确定要这么做吗？
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo">
+      <%= link_to 'Confirm Popover', 'javascript:;', class: 'button button-confirm-popover' %>
+      <%= tao_confirm_popover target_selector: '.button-confirm-popover' do %>
+        确定要这么做吗？
       <% end %>
     </div>
   </div>
@@ -74,7 +93,25 @@
     <p>指定 Popover 的宽度，支持所有的 CSS 长度（包括百分比）。</p>
   <% end %>
 
+  <%= tao_api_item name: 'confirm_text', tags: ['String'] do %>
+    <p>指定 Confirm Popover 的确认文案，默认文案定义在 Dialog 的 locale 配置里。</code></p>
+  <% end %>
+
+  <%= tao_api_item name: 'cancel_text', tags: ['String'] do %>
+    <p>指定 Confirm Popover 的取消文案，默认文案定义在 Dialog 的 locale 配置里。</code></p>
+  <% end %>
+
+  <h3>公共属性</h3>
+
+  <%= tao_api_item name: 'active', tags: ['Boolean'] do %>
+    <p>获取或者设置 Popover 的显示状态。</p>
+  <% end %>
+
   <h3>公共方法</h3>
+
+  <%= tao_api_item name: 'setContent', params: ['content'], tags: ['Return: self'] do %>
+    <p>重新设置 Popover 的内容，<code>content</code> 可以是 jQuery <code>.append()</code> 方法接受的所有类型的参数。</p>
+  <% end %>
 
   <%= tao_api_item name: 'refresh', params: [], tags: ['Return: self'] do %>
     <p>重新计算 Popover 的位置。</p>
@@ -104,6 +141,14 @@
 
   <%= tao_api_item name: 'tao:remove' do %>
     <p>从 DOM 树中移除 Popover 之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:confirm' do %>
+    <p>点击 Confirm Popover 的确认按钮之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:cancel' do %>
+    <p>点击 Confirm Popover 的取消按钮之后触发。</p>
   <% end %>
 
 </article>

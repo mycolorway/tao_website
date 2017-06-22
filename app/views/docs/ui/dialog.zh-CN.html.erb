@@ -22,10 +22,41 @@
     </div>
   </div>
 
+  <h3>Confirm 和 Message</h3>
+
+  <p>Tao UI 还提供了两个 Dialog 的衍生组件，确认弹框（Confirm Dialog）和消息弹框（Message Dialog）：</p>
+
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+\<%= link_to '确认弹框', 'javascript:;', class: 'button button-confirm-dialog' %\>
+\<%= tao_confirm_dialog trigger_selector: '.button-confirm-dialog' do %\>
+  确定要这么做吗？
+\<% end %\>
+
+\<%= link_to '消息弹框', 'javascript:;', class: 'button button-message-dialog' %\>
+\<%= tao_message_dialog trigger_selector: '.button-message-dialog' do %\>
+  感谢你的支持！
+\<% end %\>
+) %></code></pre>
+
+      <div class="demo">
+        <%= link_to '确认弹框', 'javascript:;', class: 'button button-confirm-dialog' %>
+        <%= tao_confirm_dialog trigger_selector: '.button-confirm-dialog' do %>
+          确定要这么做吗？
+        <% end %>
+
+        <%= link_to '消息弹框', 'javascript:;', class: 'button button-message-dialog' %>
+        <%= tao_message_dialog trigger_selector: '.button-message-dialog' do %>
+          感谢你的支持！
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <h3>初始化选项</h3>
 
   <%= tao_api_item name: 'active', tags: ['Boolean', 'Default: false'] do %>
-    <p>指定 Dialog 的显示状态，切换显示状态的时候会有 transition 动画。</p>
+    <p>指定 Dialog 的显示状态。</p>
   <% end %>
 
   <%= tao_api_item name: 'with_close_button', tags: ['Boolean', 'Default: false'] do %>
@@ -53,7 +84,21 @@
   <% end %>
 
   <%= tao_api_item name: 'size', tags: ['String / Number', 'CSS length value'] do %>
-    <p>指定 Slide Box 的大小，支持所有的 CSS 长度（包括百分比），以及两个预定义的大小：l（860px）和 xl（1140px）。</code></p>
+    <p>指定 Dialog 的大小，支持所有的 CSS 长度（包括百分比），以及两个预定义的大小：l（860px）和 xl（1140px）。</code></p>
+  <% end %>
+
+  <%= tao_api_item name: 'confirm_text', tags: ['String'] do %>
+    <p>指定 Confirm Dialog 和 Message Dialog 的确认文案，默认文案定义在 Dialog 的 locale 配置里。</code></p>
+  <% end %>
+
+  <%= tao_api_item name: 'cancel_text', tags: ['String'] do %>
+    <p>指定 Confirm Dialog 的取消文案，默认文案定义在 Dialog 的 locale 配置里。</code></p>
+  <% end %>
+
+  <h3>公共属性</h3>
+
+  <%= tao_api_item name: 'active', tags: ['Boolean'] do %>
+    <p>获取或者设置 Dialog 的显示状态，切换显示状态的时候会有 transition 动画。</p>
   <% end %>
 
   <h3>公共方法</h3>
@@ -84,5 +129,12 @@
     <p>从 DOM 树中移除 Dialog 之后触发。</p>
   <% end %>
 
+  <%= tao_api_item name: 'tao:confirm' do %>
+    <p>点击 Confirm Dialog 或者 Message Dialog 的确认按钮之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tao:cancel' do %>
+    <p>点击 Confirm Dialog 的取消按钮之后触发。</p>
+  <% end %>
 
 </article>
