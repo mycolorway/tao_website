@@ -11,8 +11,7 @@
 <pre><code class="erb"><%= %Q(\
 \<%= link_to 'Hover Me', 'javascript:;', class: 'button button-popover' %\>
 
-\<%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
-   auto_hide: true, size: 200 do %\>
+\<%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200 do %\>
    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
 \<% end %\>
 ) %></code></pre>
@@ -20,7 +19,7 @@
     <div class="demo popover-demo">
       <%= link_to '点我', 'javascript:;', class: 'button button-popover' %>
 
-      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200  do %>
+      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200 do %>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
       <% end %>
     </div>
@@ -58,6 +57,10 @@
 
   <%= tao_api_item name: 'auto_destroy', tags: ['Boolean', 'Default: false'] do %>
     <p>是否在隐藏 Popover 的时候自动移除组件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'with_arrow', tags: ['Boolean', 'Default: true'] do %>
+    <p>是否显示 Popover 的箭头。</p>
   <% end %>
 
   <%= tao_api_item name: 'target_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
