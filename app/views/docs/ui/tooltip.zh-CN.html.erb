@@ -1,0 +1,28 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+
+  <p>Tooltip 是 Popover 的衍生组件，接口和事件都跟 Popover 一样。</p>
+
+  <h3>用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= link_to 'Hover Me', 'javascript:;', class: 'button button-tooltip' %\>
+
+\<%= tao_tooltip target_selector: '.button-tooltip' do %\>
+  嘿嘿嘿
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo">
+      <%= link_to 'Hover Me', 'javascript:;', class: 'button button-tooltip' %>
+
+      <%= tao_tooltip target_selector: '.button-tooltip' do %>
+        嘿嘿嘿
+      <% end %>
+    </div>
+  </div>
+
+</article>
