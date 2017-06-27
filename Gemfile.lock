@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: 9f04ac98878c176f9c72cf8c7ac811a0f31488d0
+  revision: 178ac1a253dc993b78918e6e9219c0b114b8b8e9
   specs:
     tao_form (0.1.7)
       simple_form (~> 3.5.0)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: 4ffccaeb95bda1c8880f8e00b5aecf13fb00556e
+  revision: 434b8ee3c9b5a9473b6870df9780c606c7f48ec7
   specs:
     tao_ui (0.2.6)
       autoprefixer-rails (~> 7.1.1)

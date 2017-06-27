@@ -7,3 +7,8 @@ zh-CN:
         variables: 变量
         icons: 图标
         buttons: 按钮
+        table: 表格
+        slide_box: Slide Box
+        popover: Popover
+        tooltip: Tooltip
+        dialog: Dialog
