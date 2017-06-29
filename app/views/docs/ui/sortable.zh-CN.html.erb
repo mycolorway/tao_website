@@ -1,0 +1,42 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+
+  <h3>用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_sortable group_selector: '.list', axis: 'x' do %\>
+  <div class="list">
+    \<% (1..10).each do |index| %\>
+      <div class="item" draggable="true">\<%= index %\></div>
+    \<% end %\>
+  </div>
+  <div class="list">
+    \<% (11..20).each do |index| %\>
+      <div class="item" draggable="true">\<%= index %\></div>
+    \<% end %\>
+  </div>
+  <div class="list"></div>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo sortable-demo">
+      <%= tao_sortable group_selector: '.list', axis: 'x' do %>
+        <div class="list">
+          <% (1..10).each do |index| %>
+            <div class="item" draggable="true"><%= index %></div>
+          <% end %>
+        </div>
+        <div class="list">
+          <% (11..20).each do |index| %>
+            <div class="item" draggable="true"><%= index %></div>
+          <% end %>
+        </div>
+        <div class="list"></div>
+      <% end %>
+    </div>
+  </div>
+
+</article>
