@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: 178ac1a253dc993b78918e6e9219c0b114b8b8e9
+  revision: b0ae7c2e26e0412a5468833a8ff0fcc8f7050b16
   specs:
-    tao_form (0.1.7)
+    tao_form (0.1.8)
       simple_form (~> 3.5.0)
       tao_on_rails (~> 0.9.1)
       tao_ui (~> 0.2.3)
@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: f72f7947c879bfe531a12ec48c39e0a4763ca6b7
+  revision: 8ea3fe12afc7d3d4405823b25c6b9111e8054f40
   specs:
     tao_ui (0.2.6)
       autoprefixer-rails (~> 7.1.1)
@@ -80,7 +80,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    erubi (1.6.0)
+    erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18)
     flamegraph (0.9.5)
