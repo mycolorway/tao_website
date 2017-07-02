@@ -58,9 +58,6 @@ group :development do
   gem 'stackprof'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'tao_on_rails', github: 'mycolorway/tao_on_rails'
 gem 'tao_ui', github: 'mycolorway/tao_ui'
 gem 'tao_form', github: 'mycolorway/tao_form'

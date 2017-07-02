@@ -23,6 +23,26 @@
     </div>
   </div>
 
+  <h3>窄宽表单</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_form_persons_path, html: {class: 'narrow narrow-person-form', success_message: '添加成功'}, remote: true do |f| %\>
+  \<%= f.input :name, hint: '给自己起一个帅气的名字' %\>
+  \<%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %\>
+
+  <div class="form-buttons">
+    \<%= f.button :button, data: {disable_with: '正在添加'}, class: 'button-primary' %\>
+  </div>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= render 'docs/form/intro/form', person: Doc::Form::Person.new, narrow: true, form_selector: '.person-form.narrow' %>
+    </div>
+  </div>
+
 
   <h3>Simple Form</h3>
 

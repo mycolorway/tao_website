@@ -1,5 +1,6 @@
 <% if @person.errors.any? && params[:form_tpl].present? %>
-$('.person-form').replaceWith('<%= j render params[:form_tpl], person: @person %>')
+<% form_selector = params[:form_selector].presence || '.person-form'%>
+$('<%= form_selector %>').replaceWith('<%= j render params[:form_tpl], person: @person, narrow: params[:narrow].present? %>')
 <% else %>
 // do noting
 <% end %>

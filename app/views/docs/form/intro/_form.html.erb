@@ -1,5 +1,7 @@
-<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/intro/form'),
-  html: {class: 'person-form', success_message: '添加成功'}, remote: true do |f| %>
+<% narrow ||= nil %>
+<% form_selector = narrow ? '.narrow-person-form' : '.person-form' %>
+<%= tao_form person, url: docs_form_persons_path(form_tpl: 'docs/form/intro/form', narrow: narrow, form_selector: form_selector),
+  html: {class: narrow ? 'narrow-person-form narrow' : 'person-form', success_message: '添加成功'}, remote: true do |f| %>
   <%= f.input :name, hint: '给自己起一个帅气的名字' %>
   <%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %>
 
