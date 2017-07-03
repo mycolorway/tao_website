@@ -4,121 +4,182 @@
 
   <p>表格组件在基础表格样式的基础上提供了选择和展开交互。</p>
 
-  <h3>用法</h3>
+  <h3>普通表格</h3>
 
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_table selectable: true, expandable: true do %\>
-  <thead>
-    <tr>
-      <th class="th-expand-icon"></th>
-      <th class="th-checkbox">
-        \<%= tao_check_box %\>
-      </th>
-      <th>姓名</th>
-      <th>工号</th>
-      <th>状态</th>
-      <th>入职日期</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="expandable">
-      <td class="td-expand-icon">
-        \<%= tao_icon :arrow_right %\>
-      </td>
-      <td class="td-checkbox">
-        \<%= tao_check_box %\>
-      </td>
-      <td>小徐</td>
-      <td>001</td>
-      <td>在职</td>
-      <td>2017-01-01</td>
-    </tr>
-    <tr class="expandable-panel">
-      <td colspan="6">
-        <div class="employee-details">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-        </div>
-      </td>
-    </tr>
-    <tr class="expandable">
-      <td class="td-expand-icon">
-        \<%= tao_icon :arrow_right %\>
-      </td>
-      <td class="td-checkbox">
-        \<%= tao_check_box %\>
-      </td>
-      <td>小董</td>
-      <td>002</td>
-      <td>在职</td>
-      <td>2017-01-01</td>
-    </tr>
-    <tr class="expandable-panel">
-      <td colspan="6">
-        <div class="employee-details">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-        </div>
-      </td>
-    </tr>
-  </tbody>
+\<%= tao_table do |t| %\>
+  \<%= t.head do |head| %\>
+    \<%= head.cell '姓名' %\>
+    \<%= head.cell '工号' %\>
+    \<%= head.cell '状态' %\>
+    \<%= head.cell '入职日期' %\>
+    \<%= head.cell '操作', class: 'align-right' %\>
+  \<% end %\>
+
+  \<%= t.body do |body| %\>
+    \<%= body.row do |row| %\>
+      \<%= row.cell '小徐' %\>
+      \<%= row.cell '001' %\>
+      \<%= row.cell '在职' %\>
+      \<%= row.cell '2017-01-01' %\>
+      \<%= row.cell class: 'align-right' do %\>
+        \<%= link_to "编辑", '#' %\>
+        \<%= link_to "删除", '#', class: 'warn' %\>
+      \<% end %\>
+    \<% end %\>
+
+    \<%= body.row do |row| %\>
+      \<%= row.cell '小董' %\>
+      \<%= row.cell '002' %\>
+      \<%= row.cell '在职' %\>
+      \<%= row.cell '2017-01-01' %\>
+      \<%= row.cell class: 'align-right' do %\>
+        \<%= link_to "编辑", '#' %\>
+        \<%= link_to "删除", '#', class: 'warn' %\>
+      \<% end %\>
+    \<% end %\>
+  \<% end %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo without-padding">
-      <%= tao_table selectable: true, expandable: true do %>
-        <thead>
-          <tr>
-            <th class="th-expand-icon"></th>
-            <th class="th-checkbox">
-              <%= tao_check_box %>
-            </th>
-            <th>姓名</th>
-            <th>工号</th>
-            <th>状态</th>
-            <th>入职日期</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="expandable">
-            <td class="td-expand-icon">
-              <%= tao_icon :arrow_right %>
-            </td>
-            <td class="td-checkbox">
-              <%= tao_check_box %>
-            </td>
-            <td>小徐</td>
-            <td>001</td>
-            <td>在职</td>
-            <td>2017-01-01</td>
-          </tr>
-          <tr class="expandable-panel">
-            <td colspan="6">
-              <div class="employee-details">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="expandable">
-            <td class="td-expand-icon">
-              <%= tao_icon :arrow_right %>
-            </td>
-            <td class="td-checkbox">
-              <%= tao_check_box %>
-            </td>
-            <td>小董</td>
-            <td>002</td>
-            <td>在职</td>
-            <td>2017-01-01</td>
-          </tr>
-          <tr class="expandable-panel">
-            <td colspan="6">
-              <div class="employee-details">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-              </div>
-            </td>
-          </tr>
-        </tbody>
+      <%= tao_table do |t| %>
+        <%= t.head do |head| %>
+          <%= head.cell '姓名' %>
+          <%= head.cell '工号' %>
+          <%= head.cell '状态' %>
+          <%= head.cell '入职日期' %>
+          <%= head.cell '操作', class: 'align-right' %>
+        <% end %>
+
+        <%= t.body do |body| %>
+          <%= body.row do |row| %>
+            <%= row.cell '小徐' %>
+            <%= row.cell '001' %>
+            <%= row.cell '在职' %>
+            <%= row.cell '2017-01-01' %>
+            <%= row.cell class: 'align-right' do %>
+              <%= link_to "编辑", '#' %>
+              <%= link_to "删除", '#', class: 'warn' %>
+            <% end %>
+          <% end %>
+
+          <%= body.row do |row| %>
+            <%= row.cell '小董' %>
+            <%= row.cell '002' %>
+            <%= row.cell '在职' %>
+            <%= row.cell '2017-01-01' %>
+            <%= row.cell class: 'align-right' do %>
+              <%= link_to "编辑", '#' %>
+              <%= link_to "删除", '#', class: 'warn' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <h3>可展开、可选择的表格</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_table selectable: true, expandable: true do |t| %\>
+  \<%= t.head do |head| %\>
+    \<%= head.cell '姓名' %\>
+    \<%= head.cell '工号' %\>
+    \<%= head.cell '状态' %\>
+    \<%= head.cell '入职日期' %\>
+    \<%= head.cell '操作', class: 'align-right' %\>
+  \<% end %\>
+
+  \<%= t.body do |body| %\>
+    \<%= body.row do |row| %\>
+      \<%= row.content class: 'employee-1' do |content| %\>
+        \<%= content.cell '小徐' %\>
+        \<%= content.cell '001' %\>
+        \<%= content.cell '在职' %\>
+        \<%= content.cell '2017-01-01' %\>
+        \<%= content.cell class: 'align-right' do %\>
+          \<%= link_to "编辑", '#' %\>
+          \<%= link_to "删除", '#', class: 'warn' %\>
+        \<% end %\>
+      \<% end %\>
+
+      \<%= row.panel class: 'employee-details' do %\>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      \<% end %\>
+    \<% end %\>
+
+    \<%= body.row do |row| %\>
+      \<%= row.content class: 'employee-2' do |content| %\>
+        \<%= content.cell '小董' %\>
+        \<%= content.cell '002' %\>
+        \<%= content.cell '在职' %\>
+        \<%= content.cell '2017-01-01' %\>
+        \<%= content.cell class: 'align-right' do %\>
+          \<%= link_to "编辑", '#' %\>
+          \<%= link_to "删除", '#', class: 'warn' %\>
+        \<% end %\>
+      \<% end %\>
+
+      \<%= row.panel class: 'employee-details' do %\>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+      \<% end %\>
+    \<% end %\>
+
+  \<% end %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo without-padding">
+      <%= tao_table selectable: true, expandable: true do |t| %>
+        <%= t.head do |head| %>
+          <%= head.cell '姓名' %>
+          <%= head.cell '工号' %>
+          <%= head.cell '状态' %>
+          <%= head.cell '入职日期' %>
+          <%= head.cell '操作', class: 'align-right' %>
+        <% end %>
+
+        <%= t.body do |body| %>
+          <%= body.row do |row| %>
+            <%= row.content class: 'employee-1' do |content| %>
+              <%= content.cell '小徐' %>
+              <%= content.cell '001' %>
+              <%= content.cell '在职' %>
+              <%= content.cell '2017-01-01' %>
+              <%= content.cell class: 'align-right' do %>
+                <%= link_to "编辑", '#' %>
+                <%= link_to "删除", '#', class: 'warn' %>
+              <% end %>
+            <% end %>
+
+            <%= row.panel class: 'employee-details' do %>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <% end %>
+          <% end %>
+
+          <%= body.row do |row| %>
+            <%= row.content class: 'employee-2' do |content| %>
+              <%= content.cell '小董' %>
+              <%= content.cell '002' %>
+              <%= content.cell '在职' %>
+              <%= content.cell '2017-01-01' %>
+              <%= content.cell class: 'align-right' do %>
+                <%= link_to "编辑", '#' %>
+                <%= link_to "删除", '#', class: 'warn' %>
+              <% end %>
+            <% end %>
+
+            <%= row.panel class: 'employee-details' do %>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et. Praesent id condimentum dui. Nam porta odio bibendum orci porta, eu euismod ipsum accumsan. Cras dignissim, urna a auctor scelerisque, eros ex tincidunt justo, condimentum blandit mi ante quis nulla. Vestibulum tortor enim, porta ut volutpat cursus, efficitur in justo. Fusce varius ante orci, eget malesuada sem rhoncus eget. Praesent sit amet leo odio. Duis quis leo sit amet arcu ultricies vehicula. Pellentesque magna nunc, finibus nec tincidunt nec, eleifend eget mauris. Cras nunc lorem, fermentum eu justo sit amet, placerat dapibus arcu. Donec vel nunc elit. Nam commodo turpis in sem feugiat, auctor dictum dolor pretium. In quis luctus arcu. Vestibulum placerat velit eget placerat porttitor. Aliquam commodo lorem eget urna sodales hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            <% end %>
+          <% end %>
+
+        <% end %>
       <% end %>
     </div>
   </div>
