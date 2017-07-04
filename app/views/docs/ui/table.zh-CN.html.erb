@@ -184,4 +184,15 @@
     </div>
   </div>
 
+  <h3>在 SJR 模版中渲染一行</h3>
+
+  <p>如果想在 SJR 模版中渲染某一行内容，然后添加到已有到表格中，可以使用 TaoUI 提供的 view helper 来生成 table body builder：</p>
+
+  <p>
+<pre><code class="erb"><%= %Q(\
+\<% tbody = tao_table_body_builder expandable: true, selectable: true %\>
+$('.employee-table tbody').append('\<%= j render @employee, locals: {tbody: tbody} %\>');
+) %></code></pre>
+  </p>
+
 </article>
