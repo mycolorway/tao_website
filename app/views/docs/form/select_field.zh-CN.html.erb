@@ -11,11 +11,11 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %\>
   \<%= f.input :colors, as: :select, collection: colors, selected: 'blue' %\>
   \<%= f.input :city, as: :grouped_select, remote: {
-     url: docs_form_cities_path,
+     url: docs_cities_path,
      searchKey: 'name_cont',
      totalOptionSize: 10
    } %\>
@@ -23,11 +23,11 @@
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %>
         <%= f.input :colors, as: :select, collection: colors, selected: 'blue' %>
         <%= f.input :city, as: :grouped_select, remote: {
-          url: docs_form_cities_path,
+          url: docs_cities_path,
           searchKey: 'name_cont',
           totalOptionSize: 10
         } %>
@@ -41,11 +41,11 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %\>
   \<%= f.input :colors, as: :select, collection: colors, multiple: true, selected: ['red', 'blue'] %\>
   \<%= f.input :city, as: :grouped_select, multiple: true, remote: {
-     url: docs_form_cities_path,
+     url: docs_cities_path,
      searchKey: 'name_cont',
      totalOptionSize: 10
    } %\>
@@ -53,11 +53,11 @@
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <% colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'purple', 'brown', 'black', 'grey', 'white'] %>
         <%= f.input :colors, as: :select, collection: colors, multiple: true, selected: ['red', 'blue'] %>
         <%= f.input :city, as: :grouped_select, multiple: true, remote: {
-          url: docs_form_cities_path,
+          url: docs_cities_path,
           searchKey: 'name_cont',
           totalOptionSize: 10
         } %>
@@ -72,13 +72,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= tao_select f, :colors, [:red, :blue], include_blank: '选择颜色', class: 'select-field' %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= tao_select f, :colors, [:red, :blue], include_blank: '选择颜色', class: 'select-field' %>
       <% end %>
     </div>

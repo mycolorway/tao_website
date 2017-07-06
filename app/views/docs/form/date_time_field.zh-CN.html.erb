@@ -10,13 +10,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= f.input :birthday, as: :date %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= f.input :birthday, as: :date %>
       <% end %>
     </div>
@@ -27,13 +27,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= f.input :birth_time, as: :time %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= f.input :birth_time, as: :time %>
       <% end %>
     </div>
@@ -44,13 +44,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= f.input :birth_time, as: :datetime, value: Time.now.strftime('%Y-%m-%dT%T') %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= f.input :birth_time, as: :datetime, value: Time.now.strftime('%Y-%m-%dT%T') %>
       <% end %>
     </div>
@@ -61,13 +61,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= f.input :birthday, as: :month %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= f.input :birthday, as: :month %>
       <% end %>
     </div>
@@ -80,13 +80,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= tao_date_picker f, :birthday, :birthday, placeholder: '选择生日', class: 'date-field' %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= tao_date_picker f, :birthday, placeholder: '选择生日', class: 'date-field' %>
       <% end %>
     </div>

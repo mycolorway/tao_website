@@ -8,7 +8,7 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, html: {class: 'person-form', success_message: '添加成功'}, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, html: {class: 'person-form', success_message: '添加成功'}, remote: true do |f| %\>
   \<%= f.input :name, hint: '给自己起一个帅气的名字' %\>
   \<%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %\>
 
@@ -28,7 +28,7 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, html: {class: 'narrow narrow-person-form', success_message: '添加成功'}, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, html: {class: 'narrow narrow-person-form', success_message: '添加成功'}, remote: true do |f| %\>
   \<%= f.input :name, hint: '给自己起一个帅气的名字' %\>
   \<%= f.input :email, as: :email, hint: '邮箱会作为登陆账号', bottom_hint: '请填写有效的邮箱地址' %\>
 
@@ -91,7 +91,7 @@ end
   <p>Tao Form 支持在表单提交成功的时候在按钮位置显示一个提交成功的提示，只需要给组件设置一个 html 属性 <code>success_message</code>，例如：</p>
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, html: {success_message: '添加成功'}, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, html: {success_message: '添加成功'}, remote: true do |f| %\>
   ...
 \<% end %\>
 ) %></code></pre>

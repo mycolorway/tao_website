@@ -10,14 +10,14 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= f.input :married, as: :boolean, input_html: {checked: true} %\>
   \<%= f.input :handsome, as: :boolean, switch: true %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= f.input :married, as: :boolean, input_html: {checked: true} %>
         <%= f.input :handsome, as: :boolean, switch: true %>
       <% end %>
@@ -31,13 +31,13 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= tao_form person, url: docs_form_persons_path, remote: true do |f| %\>
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
   \<%= tao_check_box f, :married, disabled: true, class: 'date-field' %\>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
-      <%= tao_form person, url: docs_form_persons_path, remote: true do |f| %>
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
         <%= tao_check_box f, :married, disabled: true, class: 'date-field' %>
       <% end %>
     </div>

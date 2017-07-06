@@ -1,4 +1,4 @@
-class Docs::Form::CitiesController < ApplicationController
+class Docs::CitiesController < ApplicationController
 
   def index
     load_cities

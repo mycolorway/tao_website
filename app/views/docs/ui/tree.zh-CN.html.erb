@@ -1,0 +1,38 @@
+<%= render 'docs/ui/sidebar' %>
+
+<article>
+
+  <h3>用法</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_tree departments_tree_data, {
+  selectable: true,
+  remote: -> (department, depth) {
+    { url: docs_department_tree_items_path(department[:id]) } if depth > 0
+  },
+  expanded: -> (department, depth) { depth < 1 }
+} do |department| %\>
+  <span class="department-\<%= department[:id] %\>">
+    \<%= department[:name] %\>
+  </span>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo">
+      <%= tao_tree departments_tree_data, {
+        selectable: true,
+        remote: -> (department, depth) {
+          { url: docs_department_tree_items_path(department[:id]) } if depth > 0
+        },
+        expanded: -> (department, depth) { depth < 1 }
+      } do |department| %>
+        <span class="department-<%= department[:id] %>">
+          <%= department[:name] %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+
+</article>

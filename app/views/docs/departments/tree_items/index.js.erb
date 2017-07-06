@@ -1,0 +1,3 @@
+var $parentItem = $('.department-<%= params[:department_id] %>').closest('.tao-tree-item');
+var $treeList = $('<%= j render 'tree_list', departments: @children_departments, depth: params[:depth]%>');
+$parentItem.find('> .tao-tree-list').replaceWith($treeList);

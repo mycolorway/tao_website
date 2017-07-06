@@ -1,0 +1,11 @@
+<%= tao_tree_list departments, {
+  selectable: true,
+  depth: depth.to_i + 1,
+  remote: -> (department, depth) {
+    { url: docs_department_tree_items_path(department[:id]) }
+  }
+} do |department| %>
+  <span class="department-<%= department[:id] %>">
+    <%= department[:name] %>
+  </span>
+<% end %>

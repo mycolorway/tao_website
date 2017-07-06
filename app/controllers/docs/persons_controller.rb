@@ -1,4 +1,4 @@
-class Docs::Form::PersonsController < ApplicationController
+class Docs::PersonsController < ApplicationController
 
   def create
     @person = Doc::Form::Person.new

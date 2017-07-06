@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/mycolorway/tao_form.git
-  revision: 4c89ee57014c5ce694b0f727585f141e28b3498b
-  specs:
-    tao_form (0.1.8)
-      simple_form (~> 3.5.0)
-      tao_on_rails (~> 0.9.1)
-      tao_ui (~> 0.2.3)
-
-GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
   revision: 8e1d21d2169e1abbb863476a492cde50a803b0da
   specs:
@@ -17,9 +8,16 @@ GIT
       rails (>= 5.0.0, < 5.2)
       turbolinks (~> 5.0.1)
 
-GIT
-  remote: https://github.com/mycolorway/tao_ui.git
-  revision: ea0b0aea693926f8ed93a60903c899843c44dd1a
+PATH
+  remote: /Users/farthinker/Sites/tao_form
+  specs:
+    tao_form (0.1.8)
+      simple_form (~> 3.5.0)
+      tao_on_rails (~> 0.9.1)
+      tao_ui (~> 0.2.3)
+
+PATH
+  remote: /Users/farthinker/Sites/tao_ui
   specs:
     tao_ui (0.2.6)
       autoprefixer-rails (~> 7.1.1)
