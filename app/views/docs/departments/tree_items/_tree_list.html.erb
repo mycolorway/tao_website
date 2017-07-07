@@ -1,6 +1,7 @@
 <%= tao_tree_list departments, {
-  selectable: true,
-  depth: depth.to_i + 1,
+  selectable: selectable,
+  selected: selected,
+  depth: depth,
   remote: -> (department, depth) {
     { url: docs_department_tree_items_path(department[:id]) }
   }

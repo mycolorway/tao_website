@@ -59,8 +59,6 @@ group :development do
 end
 
 gem 'tao_on_rails', github: 'mycolorway/tao_on_rails'
-# gem 'tao_ui', github: 'mycolorway/tao_ui'
-gem 'tao_ui', path: '/Users/farthinker/Sites/tao_ui'
-# gem 'tao_form', github: 'mycolorway/tao_form'
-gem 'tao_form', path: '/Users/farthinker/Sites/tao_form'
+gem 'tao_ui', github: 'mycolorway/tao_ui'
+gem 'tao_form', github: 'mycolorway/tao_form'
 gem 'gon', '~> 6.1.0'

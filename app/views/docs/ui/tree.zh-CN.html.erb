@@ -14,24 +14,56 @@
   },
   expanded: -> (department, depth) { depth < 1 }
 } do |department| %\>
-  <span class="department-\<%= department[:id] %\>">
+  <div class="department-\<%= department[:id] %\>">
     \<%= department[:name] %\>
-  </span>
+  </div>
+\<% end %\>
+
+<!-- remote response -->
+var treeItem = $('.department-\<%= params[:department_id] %\>').closest('.tao-tree-item').get(0);
+var $treeList = $('\<%= j render 'tree_list', {
+  departments: @children_departments,
+  depth: params[:depth].to_i + 1,
+  selectable: params[:selectable].present?,
+  selected: params[:selected].present?
+} %\>');
+treeItem.updateList($treeList);
+
+<!-- _tree_list.html.erb -->
+\<%= tao_tree_list departments, {
+  selectable: true,
+  selected: selected,
+  depth: depth,
+  remote: -> (department, depth) {
+    { url: docs_department_tree_items_path(department[:id]) }
+  }
+} do |department| %\>
+  <div class="department-<\%= department[:id] %\>">
+    \<%= department[:name] %\>
+  </div>
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo">
       <%= tao_tree departments_tree_data, {
         selectable: true,
+        associated_select: true,
         remote: -> (department, depth) {
           { url: docs_department_tree_items_path(department[:id]) } if depth > 0
         },
         expanded: -> (department, depth) { depth < 1 }
       } do |department| %>
-        <span class="department-<%= department[:id] %>">
+        <div class="department-<%= department[:id] %>">
           <%= department[:name] %>
-        </span>
+        </div>
       <% end %>
+
+      <script>
+        var tree = $('.tao-tree').get(0);
+        tree.on('tao-tree:selectedChange', function(e, items) {
+          console.log(items);
+        });
+      </script>
     </div>
   </div>
 
