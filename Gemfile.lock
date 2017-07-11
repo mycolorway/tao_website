@@ -19,9 +19,9 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: c0824809e7b62a82d564db18a0775dcb67eae295
+  revision: e619d539f05370ec99db83484f6b1d27b2465298
   specs:
-    tao_ui (0.2.6)
+    tao_ui (0.2.8)
       autoprefixer-rails (~> 7.1.1)
       tao_on_rails (~> 0.9.0)
 

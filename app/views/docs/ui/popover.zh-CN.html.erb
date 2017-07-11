@@ -9,17 +9,24 @@
   <div class="example">
 
 <pre><code class="erb"><%= %Q(\
-\<%= link_to '点我', 'javascript:;', class: 'button button-popover' %\>
-
+\<%= link_to 'Click Me', 'javascript:;', class: 'button button-popover' %\>
 \<%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200 do %\>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
 \<% end %\>
 ) %></code></pre>
 
     <div class="demo popover-demo">
-      <%= link_to '点我', 'javascript:;', class: 'button button-popover' %>
+      <%= link_to 'javascript:;', class: 'button button-icon button-popover' do %>
+        <%= tao_icon :menu %>
+      <% end %>
+      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
+        target_traversal: 'prev', size: 200, direction: 'bottom-right', trigger_action: 'hover' do %>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
+      <% end %>
 
-      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover', size: 200 do %>
+      <%= link_to 'Click Me', 'javascript:;', class: 'button button-popover' %>
+      <%= tao_popover boundary_selector: '.popover-demo', target_selector: '.button-popover',
+        target_traversal: 'prev', size: 200 do %>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam molestie tempor ex, sit amet scelerisque lorem viverra et.
       <% end %>
     </div>
@@ -72,7 +79,7 @@
   <% end %>
 
   <%= tao_api_item name: 'trigger_selector', tags: ['String', 'CSS selector', 'Default: ""'] do %>
-    <p>通过 CSS Selector 指定一个元素，在点击（或者 hover，具体由 <code>trigger_action</code> 属性决定）这个元素时，会切换 Popover 的显示状态。默认会将 Popover 指向的目标元素作为 triiger 元素。</p>
+    <p>通过 CSS Selector 指定一个元素，在点击（或者 hover，具体由 <code>trigger_action</code> 属性决定）这个元素时，会切换 Popover 的显示状态。默认会将 Popover 指向的目标元素作为 trigger 元素。</p>
   <% end %>
 
   <%= tao_api_item name: 'trigger_traversal', tags: ['String', 'jQuery traversing method', 'Default: ""'] do %>
