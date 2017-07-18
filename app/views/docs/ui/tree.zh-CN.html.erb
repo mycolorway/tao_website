@@ -20,14 +20,14 @@
 \<% end %\>
 
 <!-- remote response -->
-var treeItem = $('.department-\<%= params[:department_id] %\>').closest('.tao-tree-item').get(0);
+var parentItem = $('.tao-tree-item[tao-id=\<%= params[:tree_item_id] %\>]').get(0)
 var $treeList = $('\<%= j render 'tree_list', {
   departments: @children_departments,
   depth: params[:depth].to_i + 1,
   selectable: params[:selectable].present?,
   selected: params[:selected].present?
 } %\>');
-treeItem.updateList($treeList);
+parentItem.updateList($treeList);
 
 <!-- _tree_list.html.erb -->
 \<%= tao_tree_list departments, {
