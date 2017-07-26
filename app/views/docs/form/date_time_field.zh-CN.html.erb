@@ -73,6 +73,23 @@
     </div>
   </div>
 
+  <h3>日期范围选择</h3>
+
+  <div class="example">
+
+<pre><code class="erb"><%= %Q(\
+\<%= tao_form person, url: docs_persons_path, remote: true do |f| %\>
+  \<%= f.input :birthday, as: :date_range %\>
+\<% end %\>
+) %></code></pre>
+
+    <div class="demo<%= ' without-padding' if request.variant.mobile? %>">
+      <%= tao_form person, url: docs_persons_path, remote: true do |f| %>
+        <%= f.input :birthday, as: :date_range %>
+      <% end %>
+    </div>
+  </div>
+
   <h3>组件</h3>
 
   <p>日期时间组件可以脱离 input 作为单独的字段渲染，例如</p>
@@ -133,6 +150,13 @@
     <p>指定组件上显示的 icon 名称。</p>
   <% end %>
 
+  <%= tao_api_item name: 'disable_before', tags: ['Moment'] do %>
+    <p>禁止选择制定时间之前的日期或时间。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'disable_after', tags: ['Moment'] do %>
+    <p>禁止选择制定时间之后的日期或时间。</p>
+  <% end %>
 
   <h4>日期 + 时间组件独有的初始化选项：</h4>
 
