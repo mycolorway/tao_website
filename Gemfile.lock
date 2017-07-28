@@ -1,15 +1,15 @@
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: d320d46ce8b0650720686a0c8fa105d14b21d9a0
+  revision: 740cde27d2728301a6dc4a199deef55e8ef86b62
   specs:
-    tao_form (0.1.9)
+    tao_form (0.1.10)
       simple_form (~> 3.5.0)
       tao_on_rails (~> 0.9.2)
       tao_ui (~> 0.2.9)
 
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: 7abc0d81c72e6f59b8c74f61320034bf7a58f63e
+  revision: d9ecbb1a73494a929c695f73b8bbe10935f2861b
   specs:
     tao_on_rails (0.9.3)
       jquery-rails (~> 4.3.1)
@@ -19,9 +19,9 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: 40dc1207b91d634005930304a80a286c4c328ef7
+  revision: f41b01bf9f720b226d570e4679e6cb5b53fd381d
   specs:
-    tao_ui (0.2.9)
+    tao_ui (0.2.10)
       autoprefixer-rails (~> 7.1.1)
       tao_on_rails (~> 0.9.2)
 
@@ -202,7 +202,7 @@ GEM
     stackprof (0.2.10)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.8)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
