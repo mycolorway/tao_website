@@ -253,4 +253,28 @@ TaoComponent.register TodoItem
     </div>
   </div>
 
+  <h3>Tabs</h3>
+
+  <div class="example">
+<pre><code class="erb"><%= %Q(\
+<div class="tabs">
+  \<%= link_to "新增加", '#', class: 'tab active' %\>
+  \<%= link_to "已推荐", '#', class: 'tab' %\>
+  \<%= link_to "面试", '#', class: 'tab' %\>
+  \<%= link_to "录用", '#', class: 'tab' %\>
+  \<%= link_to "归档", '#', class: 'tab' %\>
+</div>
+) %></code></pre>
+
+    <div class="demo">
+      <div class="tabs">
+        <%= link_to "新增加", '#', class: 'tab active' %>
+        <%= link_to "已推荐", '#', class: 'tab' %>
+        <%= link_to "面试", '#', class: 'tab' %>
+        <%= link_to "录用", '#', class: 'tab' %>
+        <%= link_to "归档", '#', class: 'tab' %>
+      </div>
+    </div>
+  </div>
+
 </article>
