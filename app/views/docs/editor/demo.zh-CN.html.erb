@@ -1,0 +1,20 @@
+<%= render 'docs/editor/sidebar' %>
+
+<article>
+
+  <h3>Tao Editor</h3>
+
+  <div class="example">
+
+<pre><code class="html"><%= %Q(\
+\<%= f.input :comment, as: :editor, placeholder: '评论内容', label: false %\>
+) %></code></pre>
+
+    <div class="demo without-padding">
+      <%= tao_form Doc::Form::Person.new, url: docs_persons_path, remote: true do |f| %>
+        <%= f.input :comment, as: :editor, placeholder: '评论内容', label: false %>
+      <% end %>
+    </div>
+
+  </div>
+</article>

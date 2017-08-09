@@ -59,7 +59,8 @@ group :development do
   gem 'stackprof'
 end
 
-gem 'tao_on_rails', github: 'mycolorway/tao_on_rails'
-gem 'tao_ui', github: 'mycolorway/tao_ui'
-gem 'tao_form', github: 'mycolorway/tao_form'
+gem 'tao_on_rails', github: 'mycolorway/tao_on_rails', branch: :master
+gem 'tao_ui', github: 'mycolorway/tao_ui', branch: :master
+gem 'tao_form', github: 'mycolorway/tao_form', branch: :master
+gem 'tao_editor', github: 'mycolorway/tao_editor', branch: :master
 gem 'gon', '~> 6.1.0'

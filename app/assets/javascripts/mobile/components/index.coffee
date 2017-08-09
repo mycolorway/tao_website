@@ -1,3 +1,3 @@
 #= require tao/form/mobile
-#= require shared/components
+#= require highlightjs
 #= require_tree .
