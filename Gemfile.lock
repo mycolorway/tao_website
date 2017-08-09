@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mycolorway/tao_editor.git
-  revision: bfe9cc9979a61ed8006cacac725203b548106708
+  revision: 549a34d95258820fe7a3c0060a0ba3800841d990
   branch: master
   specs:
     tao_editor (0.0.1)
