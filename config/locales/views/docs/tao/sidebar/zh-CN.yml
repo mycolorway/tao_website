@@ -1,0 +1,9 @@
+zh-CN:
+  docs:
+    tao:
+      sidebar:
+        intro: 介绍
+        component: Components
+        page: Page
+        application: Application
+        file_structure: 文件结构

@@ -1,0 +1,13 @@
+<aside>
+  <%= link_to t('docs.return_docs'), docs_path, class: 'link-return' %>
+
+  <h2>Tao UI</h2>
+
+  <ul>
+    <% %w(intro component page application file_structure).each do |section| %>
+    <li>
+      <%= link_to t(".#{section}"), doc_path(path: "tao/#{section}"), class: @doc_path == "tao/#{section}" ? 'active' : '' %>
+    </li>
+    <% end %>
+  </ul>
+</aside>

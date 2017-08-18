@@ -2,7 +2,6 @@ zh-CN:
   docs:
     ui:
       sidebar:
-        return_docs: 返回文档
         basic: 基础样式
         variables: 变量
         icons: 图标
