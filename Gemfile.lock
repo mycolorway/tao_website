@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mycolorway/tao_editor.git
-  revision: 549a34d95258820fe7a3c0060a0ba3800841d990
+  revision: 20290ba11b115034a2e6758942267c2655af6351
   branch: master
   specs:
     tao_editor (0.0.1)
@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: efd026371288978a6bb92560c5198df51affa66c
+  revision: 9cdddbd93fbc08ff540cf24d0cf5010138aa290f
   branch: master
   specs:
     tao_form (0.1.10)
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: 251adfea7c8cadba6e50a2efc6d2fa47ff88be9b
+  revision: 497d494f732b15c0eb7d13e40859a46fab111b78
   branch: master
   specs:
     tao_ui (0.2.10)
@@ -79,7 +79,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
-    autoprefixer-rails (7.1.2.4)
+    autoprefixer-rails (7.1.2.6)
       execjs
     bindex (0.5.0)
     browser (2.3.0)

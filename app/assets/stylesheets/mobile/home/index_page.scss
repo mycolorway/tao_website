@@ -1,0 +1,38 @@
+@import 'mobile/globals';
+
+.home-index-page {
+  .banner {
+    color: $light-grey-color;
+
+    .banner-image {
+      display: block;
+      width: 15rem;
+      height: 15rem;
+      margin: 2rem auto;
+    }
+
+    .desc {
+      padding: 0 2rem;
+    }
+  }
+
+  .section {
+    margin: 3rem 0 0 0;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .example {
+      padding: 0 2rem;
+      margin: 0 0 2rem 0;
+
+      .comments {
+        p {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}

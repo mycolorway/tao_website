@@ -1,7 +1,7 @@
 zh-CN:
   layouts:
     header:
-      home: 简介
-      docs: 文档与指南
+      home: 首页
+      docs: 文档
+      team: 团队
       contribution: 贡献代码
-      team: 我们的团队

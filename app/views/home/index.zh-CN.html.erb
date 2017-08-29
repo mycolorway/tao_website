@@ -1,0 +1,113 @@
+<div class="banner">
+  <%= image_tag 'tao.png', class: 'banner-image' %>
+  <div class="desc">
+    <p><a href="http://rubyonrails.org/">Ruby on Rails</a> 是一个非常适合初创项目的 Web 框架，它与敏捷开发有很高的相性，对初学者来说门槛较低。但是随着项目逐渐膨胀，Rails 在前端模块化方面的缺陷就会逐渐显现出来。</p>
+    <p>彩程团队在多年的 Rails 开发实践过程中，积累并整理了一套适用于大型项目的前端模块化框架。我们将它命名为“道”（英文 Tao），可以解释为我们团队的“工程之道”和“产品之道”。</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>组件化的页面</h2>
+
+  <div class="example">
+    <div class="comments">
+      <p>“道”提倡以组件为单位拆分页面。</p>
+    </div>
+    <div class="codes">
+      <pre><code class="erb"><%= %Q(\
+# app/views/todos/show.html.erb
+
+\<%= tao_todo_item todo %\>
+\<%= tao_todo_comments todo %\>\
+      ) %></code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>组件化的渲染逻辑</h2>
+
+  <div class="example">
+    <div class="comments">
+      <p>“道”以组件为单位模块化渲染逻辑，每个组件有一个对应的组件类和一个可选的 partial 模版。</p>
+      <p>组件类会定义组件的 attributes、helper method，以及对应的 view helper。例如，<code>Todos::ItemComponent</code> 对应的 view helper 是 <code>tao_todo_item(todo, options)</code>。</p>
+    </div>
+    <div class="codes">
+      <pre><code class="ruby"><%= %Q(\
+# app/components/todos/item_component.rb
+
+class Todos::ItemComponent < ApplicationComponent
+
+  attr_reader :todo
+
+  def initialize view, todo, options = {}
+    super view, options
+    @todo = todo
+  end
+
+  def tags
+    /#(.+?)#/.match(todo.content).to_a
+  end
+
+  def content_without_tags
+    todo.content.gsub(/#(.+?)#/, '')
+  end
+
+end\
+      ) %></code></pre>
+    </div>
+  </div>
+
+  <div class="example">
+    <div class="comments">
+      <p>组件可以有对应的 partial 模版，例如，<code>Todos::ItemComponent</code> 对应的 partial 模版是 <code>app/views/components/todos/_item.html.erb</code>。</p>
+      <p>组件的 partial 模版会接受组件的实例 <code>component</code> 作为 locale variable 传入。</p>
+    </div>
+    <div class="codes">
+      <pre><code class="erb"><%= %Q(\
+<!-- app/views/components/todos/_item.html.erb -->
+\<%= content_tag component.tag_name, id: dom_id(component.todo), completed: component.todo.completed do %\>
+  \<%= check_box_tag nil, '1', component.todo.completed, class: 'todo-checkbox' %\>
+  <div class="tags">
+    \<% component.tags.each do |tag| %\>
+      \<%= link_to tag, '#', class: 'tag' %\>
+    \<% end %\>
+  </div>
+  <div class="content">\<%= component.content_without_tags %\></div>
+\<% end %\>\
+      ) %></code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>组件化的交互逻辑</h2>
+
+  <div class="example">
+    <div class="comments">
+      <p>“道”以组件为单位模块化交互逻辑。</p>
+      <p>按照 <%= link_to "Custom Elements V1", 'https://developers.google.com/web/fundamentals/architecture/building-components/customelements' %> 标准，组件被封装成标准的自定义 HTMLElement。</p>
+      <p>TaoComponent 提供了一套属性声明机制，通过这套机制我们可以方便的操作自定义元素的 HTML 属性。</p>
+    </div>
+    <div class="codes">
+      <pre><code class="coffee"><%= %Q(\
+# app/assets/javascripts/components/todos/item.coffee
+
+class TodoItem extends TaoComponent
+
+  @tag 'tao-todo-item'
+
+  @attribute 'completed', type: 'boolean', default: false
+
+  _connected: ->
+    @on 'click', '.todo-checkbox', (e) =>
+      @completed = $(e.currentTarget).is(':checked')
+
+  _disconnected: ->
+    @off()
+
+TaoComponent.register TodoItem\
+      ) %></code></pre>
+    </div>
+  </div>
+</div>
