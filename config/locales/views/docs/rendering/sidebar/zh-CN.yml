@@ -1,0 +1,6 @@
+zh-CN:
+  docs:
+    rendering:
+      sidebar:
+        component: 组件类
+        api: API 文档

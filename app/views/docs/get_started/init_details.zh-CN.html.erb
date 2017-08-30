@@ -1,0 +1,85 @@
+<%= render 'docs/get_started/sidebar' %>
+
+<article>
+
+  <h3>Application Layout</h3>
+
+  <p>初始化脚本修改了 Rails 的默认 Application Layout，具体内容如下：</p>
+
+  <pre><code class="erb"><%= %Q(\
+# app/views/layouts/application.html.erb
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= content_for(:title) || 'A Tao on Rails Project' %\></title>
+    \<%= csrf_meta_tags %\>
+
+    \<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %\>
+    \<%= content_for(:stylesheet) %\>
+
+    \<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %\>
+    \<%= content_for(:javascript) %\>
+  </head>
+
+  <body>
+    \<%= tao_page layout: 'default' do %\>
+      \<%= yield %\>
+    \<% end %\>
+  </body>
+</html>\
+  ) %></code></pre>
+
+  <p>其中最大的区别是在 <code>body</code> 里面，“道” 使用 view helper <code>tao_page</code> 来渲染页面的容器。</p>
+
+  <p><code>tao_page</code> 是跟 Page 组件绑定的 view helper，Page 组件会根据页面的 controller path 渲染一个 custom element 作为页面的容器，例如，在 <code>todos#index</code> 页面 <code>tao_page</code> 的渲染结果是： </p>
+
+  <pre><code class="erb"><%= %Q(\
+<todos-index-page layout="default">
+  <!-- page content -->
+</todos-index-page>\
+  ) %></code></pre>
+
+  <h3>交互脚本</h3>
+
+  <p>初始化脚本修改了 Rails 默认的交互脚本入口 <code>application.coffee</code>，具体内容如下：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+# app/assets/javascripts/application.coffee
+
+#= require action_cable
+#= require tao
+#= require_self
+#= require_tree .
+
+class Application extends TaoApplication
+
+window.app = new Application\
+  ) %></code></pre>
+
+  <p>主要的改动有两个，一个是增加了对 “道” 的前端脚本的引用，另一个是增加了 Application 类的初始化。</p>
+
+  <p>Application 类继承自 <code>TaoApplication</code>，<code>TaoApplication</code> 负责管理全局的交互配置以及前端页面的生命周期。</p>
+
+  <h3>样式</h3>
+
+  <p>跟交互脚本类似，初始化脚本也修改了 Rails 的样式入口 <code>application.scss</code>，增加了对 “道” 样式文件的引用，具体内容是：</p>
+
+  <pre><code class="sass"><%= %Q(\
+// app/assets/stylesheets/application.scss
+
+//= require tao
+//= require_tree .\
+  ) %></code></pre>
+
+  <p>另外，初始化脚本还增加了一个 Sass partial <code>_globals.scss</code>，项目所有的 Sass variables、mixins 和 funcitons 都应该放到这个文件里，或者在这个文件里 import，然后其他样式文件需要 import 这个 partial：</p>
+
+  <pre><code class="sass"><%= %Q(\
+// app/assets/stylesheets/todos/index_page.scss
+
+@import 'globals';
+
+...\
+  ) %></code></pre>
+
+</article>

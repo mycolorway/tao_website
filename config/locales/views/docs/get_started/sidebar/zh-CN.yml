@@ -1,0 +1,7 @@
+zh-CN:
+  docs:
+    get_started:
+      sidebar:
+        install: 安装和初始化
+        init_details: 初始化详解
+        file_structure: 文件结构

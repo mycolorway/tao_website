@@ -1,0 +1,45 @@
+<article>
+
+  <div class="group">
+    <h2>了解 “道”</h2>
+
+    <div class="section">
+      <h3><%= link_to '开始使用', doc_path(path: 'get_started/install') %></h3>
+      <p>这篇文档介绍如果在一个全新的 Rails 项目里使用 “道”。</p>
+    </div>
+
+    <div class="section">
+      <h3><%= link_to '渲染', doc_path(path: 'rendering/component') %></h3>
+      <p>这篇文档介绍 “道” 基于组件类和 view helper 实现渲染模块化的具体细节和相关约定。</p>
+    </div>
+
+    <div class="section">
+      <h3><%= link_to '交互', doc_path(path: 'interaction/component') %></h3>
+      <p>这篇文档介绍基于 Custom Elements V1 标准的交互组件，包括组件的生命周期以及组件的属性声明机制。</p>
+    </div>
+
+    <div class="section">
+      <h3><%= link_to '样式', doc_path(path: 'style/variables') %></h3>
+      <p>这篇文档介绍基于 Sass variables 和 import 实现的可以扩展的样式共享方案。</p>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2>扩展项目</h2>
+
+    <div class="section">
+      <h3><%= link_to 'Tao UI', doc_path(path: 'ui/basic') %></h3>
+      <p>Tao UI 提供基础的全局样式和相关工具。</p>
+    </div>
+
+    <div class="section">
+      <h3><%= link_to 'Tao Form', doc_path(path: 'form/intro') %></h3>
+      <p>Tao Form 提供统一的表单样式和交互，包括验证、提交，以及一些基础类型的字段。</p>
+    </div>
+
+    <div class="section">
+      <h3><%= link_to 'Tao Editor', doc_path(path: 'editor/demo') %></h3>
+      <p>Tao Editor 是一个基于 <%= link_to "ProseMirror", 'https://prosemirror.net/' %> 实现的可视化富文本编辑器。（WIP）</p>
+    </div>
+  </div>
+</article>

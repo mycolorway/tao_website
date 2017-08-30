@@ -1,0 +1,43 @@
+<%= render 'docs/get_started/sidebar' %>
+
+<article>
+
+  <h3>创建项目</h3>
+
+  <p>确保本地环境中已经安装了 Rails 5.0+，然后用标准的 <code>rails new</code> 命令创建项目：</p>
+
+<pre><code class="bash"> <%= %Q(\
+rails new project_name\
+) %></code></pre>
+
+  <h3>安装 Gem</h3>
+
+  <p>在新项目的 <code>Gemfile</code> 中添加依赖： </p>
+
+<pre><code class="ruby"> <%= %Q(\
+gem 'tao_on_rails'
+) %></code></pre>
+
+  <p>然后执行 <code>bundle install</code>。</p>
+
+  <h3>初始化</h3>
+
+  <p>安装好 gem 之后，还需要在命令行执行 “道” 的初始化脚本：</p>
+
+<pre><code class="ruby"> <%= %Q(\
+rails g tao:install
+) %></code></pre>
+
+  <p>这个命令会帮我们完成这些工作：</p>
+
+  <ul>
+    <li>增加 <code>app/components/application_component.rb</code> 文件</li>
+    <li>更新 <code>app/views/layouts/application.html.erb</code> 文件</li>
+    <li>更新 <code>app/assets/javascripts/application.coffee</code> 文件</li>
+    <li>更新 <code>app/assets/javascripts/application.scss</code> 文件</li>
+    <li>增加 <code>app/assets/javascripts/_globals.scss</code> 文件</li>
+  </ul>
+
+  <p>初始化完成之后就可以开始写代码了。</p>
+
+</article>
