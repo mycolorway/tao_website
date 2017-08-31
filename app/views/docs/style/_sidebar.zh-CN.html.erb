@@ -1,0 +1,13 @@
+<aside>
+  <%= link_to t('docs.return_docs'), docs_path, class: 'link-return' %>
+
+  <h2>样式</h2>
+
+  <ul>
+    <% %w(variables).each do |section| %>
+    <li>
+      <%= link_to t(".#{section}"), doc_path(path: "style/#{section}"), class: @doc_path == "style/#{section}" ? 'active' : '' %>
+    </li>
+    <% end %>
+  </ul>
+</aside>

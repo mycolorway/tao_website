@@ -4,7 +4,7 @@
   <h2>渲染</h2>
 
   <ul>
-    <% %w(get_started component api).each do |section| %>
+    <% %w(component view_helper api).each do |section| %>
     <li>
       <%= link_to t(".#{section}"), doc_path(path: "rendering/#{section}"), class: @doc_path == "rendering/#{section}" ? 'active' : '' %>
     </li>

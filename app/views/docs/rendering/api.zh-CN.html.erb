@@ -1,0 +1,47 @@
+<%= render 'docs/rendering/sidebar' %>
+
+<article>
+
+  <h3>TaoOnRails::Components::Base</h3>
+
+  <h4>Attributes</h4>
+
+  <%= tao_api_item name: 'view' do %>
+    <p>ActionView 的上下文对象。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'options', tags: ['Hash'] do %>
+    <p>组件的选项，通常是初始化传入的 <code>options</code> 参数与 <code>default_options</code> 合并之后的结果。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'html_options', tags: ['Hash'] do %>
+    <p>转换自 <code>options</code>，key 里面的下划线被替换成中横线（dasherize），用于渲染 HTML 元素。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'tag_name', tags: ['String'] do %>
+    <p>组件对应的 Custom Element 的 tag name。</p>
+  <% end %>
+
+  <h4>Public Methods</h4>
+
+  <%= tao_api_item name: 'render', params: ['&block'] do %>
+    <p>渲染组件，接受一个可选的 block 参数。</p>
+  <% end %>
+
+  <h4>Private Methods</h4>
+
+  <%= tao_api_item name: 'default_options', tags: ['Return: Hash'] do %>
+    <p>获取组件的默认 options，子类可以通过重写这个方法来定义组件的默认 opitons，初始化的时候默认 options 会跟传入的 options 合并。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'merge_options', params: ['options', 'another_options'], tags: ['Return: Hash'] do %>
+    <p>合并两个 Hash，返回一个新的 Hash。这个方法会自动处理 html class 的合并，例如：</p>
+
+    <pre><code class="ruby"><%= %Q(\
+merge_options({class: 'test-class-a'}, {class: 'test-class-b'}})
+# return {class: 'test-class-a test-class-b'}\
+    ) %></code></pre>
+
+  <% end %>
+
+</article>

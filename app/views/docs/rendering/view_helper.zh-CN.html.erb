@@ -1,0 +1,31 @@
+<%= render 'docs/rendering/sidebar' %>
+
+<article>
+
+  <p>“道” 会自动给每一个组件类定义一个对应的 View Helper。例如，<code>Todos::ItemComponent</code> 会有一个对应的 <code>tao_todo_item</code> View Helper 方法。</p>
+
+  <p>View Helper 是在 action_view 的 load hook 里动态定义的：</p>
+
+  <pre><code class="ruby"><%= %Q(\
+::ActiveSupport.on_load :action_view do
+  include ::TaoOnRails::ActionView::Helpers
+  load_tao_components ::TaoOnRails::Engine.root
+  define_component_helpers
+end
+  ) %></code></pre>
+
+  <p>定义 View Helper 之前，“道” 会先加载 <code>app/components</code> 里面的所有 ruby 文件。然后通过 <code>TaoOnRails::Components::Base.descendants</code> 找到所有的组件类，为每个组件类都定义一个 View Helper：</p>
+
+  <pre><code class="ruby"><%= %Q(\
+TaoOnRails::Components::Base.descendants.each do |klass|
+  module_eval %Q{
+    def \#{klass.tag_name.underscore} *args, &block
+      \#{klass.name}.new(self, *args).render(&block)
+    end
+  }
+end\
+  ) %></code></pre>
+
+  <p>可以看到，每一个 View Helper 的内容都以一样的：实例化组件类，然后调用 render 方法。</p>
+
+</article>

@@ -2,6 +2,116 @@
 
 <article>
 
-  <h3>单平台项目</h3>
+  <p>“道” 对于项目的文件结构有自己的约定，这些约定主要包括 javascripts、stylesheets、components 和 views 四个部分。</p>
+
+  <h3>Javascripts</h3>
+
+  <p>交互脚本的典型文件结构是这样的：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+app/
+  assets/
+    javascripts/
+      channels/
+      components/ # 把全局组件放在这个文件夹
+        menu_popover.coffee
+        index.coffee
+      todos/
+        components/ # 跟 todo 资源相关的组件放到这个文件夹
+          item.coffee
+          index.coffee
+        index_page.coffee # 跟页面绑定的交互逻辑，页面组件化之后大多数时候不需要这类文件
+        edit_page.coffee
+      application.coffee # 应用入口\
+  ) %></code></pre>
+
+  <h3>Stylesheets</h3>
+
+  <p>样式文件的典型文件结构是这样的：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+app/
+  assets/
+    stylesheets/
+      components/ # 把全局组件放在这个文件夹
+        menu_popover.scss
+        index.scss
+      layouts/
+      todos/
+        components/ # 跟 todo 资源相关的组件放到这个文件夹
+          item.scss
+          index.scss
+      _globals.scss
+      application.scss # 应用入口\
+  ) %></code></pre>
+
+  <h3>Components</h3>
+
+  <p>“道” 增加了 <code>app/components</code> 文件夹用来存放组件类：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+app/
+  components/
+    todos/ # 跟 todo 资源相关的组件类放在这里
+      item_component.rb
+    menu_popover_component.rb # 全局组件类放到根目录
+    application_component.rb/\
+  ) %></code></pre>
+
+  <h3>Views</h3>
+
+   <p>跟组件类对应的 partial 模版放在 <code>app/views/components</code> 文件夹：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+app/
+  views/
+    components/
+      todos/ # 跟 todo 资源相关的组件模版放到这里
+        _item.html.erb
+      _menu_popover.html.erb # 全局组件的模版放到跟目录\
+  ) %></code></pre>
+
+  <h3>多平台项目</h3>
+
+  <p>需要支持多平台（比如需要同时支持桌面版和移动版）的项目文件结构要更复杂一些，我们需要将前端资源分成两个独立的 assets package：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+app/
+  assets/
+    javascripts/
+      desktop/
+        channels/
+        components/
+        todos/
+        application.coffee
+      mobile/
+        channels/
+        components/
+        todos/
+        application.coffee
+      shared/ # 跨平台共享的交互脚本放在这里
+    stylesheets/
+      desktop/
+        components/
+        layouts/
+        todos/
+        _globals.scss
+        application.scss
+      mobile/
+        components/
+        layouts/
+        todos/
+        _globals.scss
+        application.scss
+      shared/ # 跨平台共享的样式放在这里
+  views/
+    components/
+      todos/
+        _item.html.erb
+        _item.html+mobile.erb
+    layouts/
+      application.html.erb
+      application.html+mobile.erb\
+  ) %></code></pre>
 
 </article>

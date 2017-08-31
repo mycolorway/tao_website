@@ -4,6 +4,56 @@
 
   <h3>Base 类</h3>
 
-  <p>“道”依靠组件类来定义组件的渲染逻辑，每个组件类都继承自一个 Base 类 <code><%= link_to "TaoOnRails::Components::Base", '' %></code></p>
+  <p>“道”依靠组件类来定义组件的渲染逻辑，每个组件类都继承自一个 Base 类 <code><%= link_to "TaoOnRails::Components::Base", 'https://github.com/mycolorway/tao_on_rails/blob/master/lib/tao_on_rails/components/base.rb' %></code>。</p>
+
+  <p>组件类里最重要的一个方法是 <code>render(&block)</code>，接受一个可选的 &block 参数。Base 类为子类定义了默认的 render 方法，具体的内容是：</p>
+
+  <pre><code class="ruby"><%= %Q(\
+def render &block
+  if template = find_template
+    render_template template, &block
+  else
+    view.content_tag tag_name, nil, html_options, &block
+  end
+end\
+  ) %></code></pre>
+
+  <p>可以看到，默认的 render 逻辑会先尝试去找到组件类对应的 partial 模版，如果能找到就渲染模版。</p>
+
+  <h3>渲染模版</h3>
+
+  <p>Base 类的 <code>find_template</code> 方法会按照约定在指定的路径查找 partial 模版。查找路径是通过组件类的名称推算出来的。例如，<code>Todos::ItemsComponent</code> 组件会尝试找到：</p>
+
+  <p><code>app/views/components/todos/_item.html.erb</code></p>
+
+  <p>如果找到了这个模版，组件类会渲染这个模版，并且把组件的实例（component）作为 local variable 传入模版，例如：</p>
+
+  <pre><code class="erb"><%= %Q(\
+\<%= content_tag component.tag_name, component.html_options do %\>
+  \<%= yield %\><!-- 模版里可以 yield 传入 render 方法的 block -->
+\<% end %\>\
+  ) %></code></pre>
+
+  <p>其中，<code>tag_name</code> 和 <code>html_options</code> 是 Base 类定义的 attribute，具体可以查看 <%= link_to "API 文档", doc_path(path: "rendering/api") %></p>
+
+  <h3>渲染 Custom Element</h3>
+
+  <p>如果没有找到对应的 partial 模版，组件类会渲染一个 Custom HTML Element 作为组件的容器。Custom Element 的 tag name 是按照约定通过组件类的名称推算出来的。例如，<code>Todos::ItemsComponent</code> 对应的 tag name 是：</p>
+
+  <p><code>tao-todo-item</code></p>
+
+  <p>前缀 <code>tao</code> 是 Base 类定义的默认前缀，子类可以通过重写 <code>tag_prefix</code> 类方法来重新定义前缀，例如：</p>
+
+  <pre><code class="ruby"><%= %Q(\
+class ApplicationComponent < TaoOnRails::Components::Base
+
+  private
+
+  def self.tag_prefix
+    :zr
+  end
+
+end
+  ) %></code></pre>
 
 </article>

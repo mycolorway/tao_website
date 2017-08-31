@@ -3,4 +3,5 @@ zh-CN:
     rendering:
       sidebar:
         component: 组件类
+        view_helper: View Helper
         api: API 文档
