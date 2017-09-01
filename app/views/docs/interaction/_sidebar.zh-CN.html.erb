@@ -4,7 +4,7 @@
   <h2>交互</h2>
 
   <ul>
-    <% %w(component).each do |section| %>
+    <% %w(custom_elements api).each do |section| %>
     <li>
       <%= link_to t(".#{section}"), doc_path(path: "interaction/#{section}"), class: @doc_path == "interaction/#{section}" ? 'active' : '' %>
     </li>

@@ -1,0 +1,6 @@
+zh-CN:
+  docs:
+    interaction:
+      sidebar:
+        custom_elements: 交互组件
+        api: API 文档

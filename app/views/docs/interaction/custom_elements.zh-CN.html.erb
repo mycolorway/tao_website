@@ -1,0 +1,92 @@
+<%= render 'docs/interaction/sidebar' %>
+
+<article>
+
+  <h3>Custom Elements</h3>
+
+  <p><%= link_to "Custom Elements", 'https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements' %> 是 W3C <%= link_to "Web Components", 'https://developer.mozilla.org/en-US/docs/Web/Web_Components' %> 规范的一部分，它让开发者可以创建拥有自定义交互功能的标准 HTML 元素。</p>
+
+  <p>Custom Elements 本质上就是 HTML Element，所以跟 Rails 的渲染、缓存机制不会有冲突。“道” 的交互组件是对 Custom Elements 一个封装，借助 Custom Elements 可以完美的解决 Rails 前端交互模块化的问题。</p>
+
+  <p>目前现代浏览器对 Custom Elements V1 接口的支持参差不齐，为了解决兼容性的问题，我们采用了一个开源的 <%= link_to 'polyfill', 'https://github.com/webcomponents/custom-elements' %>。这个 polyfill 项目是 <%= link_to "Google Polymer", 'https://www.polymer-project.org/' %> 项目的一部分。</p>
+
+  <h3>组件生命周期</h3>
+
+  <p>Custom Elements 提供的最核心的接口是 HTML 元素的生命周期回调（lifecycle reaction），TaoComponent 封装了这些回调方法，并且形成了 “道” 自己的组件生命周期：</p>
+
+  <ul>
+    <li><code>_created</code>：组件被创建的时候触发。</li>
+    <li><code>_init</code>：组件第一次在页面上被渲染的时候触发，在组件的生命周期里只会被触发一次。</li>
+    <li><code>_connected</code>：组件每次被插入到页面里的时候都会触发。</li>
+    <li><code>_disconnected</code>：组件每次被从页面上移除的时候都会触发。</li>
+    <li><code>_attributeChanged</code>：组件的属性发生变化之后触发，组件的属性通常反映了组件当前的状态。</li>
+  </ul>
+
+  <p>通过这些生命周期回调，我们可以方便的在组件上绑定、销毁交互事件。</p>
+
+  <h3>标签声明</h3>
+
+  <p>TaoComponent 需要首先声明组件对应的 HTML 标签名称，这样浏览器在渲染页面的时候才能将 Custom Element 的交互逻辑交给对应的组件类接管，例如：。</p>
+
+  <pre><code class="coffee"><%= %Q(\
+class TodoItem extends TaoComponent
+
+  @tag 'tao-todo-item'\
+  ) %></code></pre>
+
+  <h3>属性声明</h3>
+
+  <p>TaoComponent 借助 HTML attribute 来记录组件的当前状态。但是 HTML attribute 的值只能是字符串，这会给编写交互逻辑造成诸多不便。为了解决这个问题 TaoComponent 提供了一个属性注册机制，这个机制可以给我们提供两方面的便利：</p>
+
+  <ul>
+    <li>一方面将 HTML 属性跟组件类实例对象的属性关联起来，获取、设置实例对象属性的时候，等价于在获取、设置 HTML 元素的属性。</li>
+    <li>另一方面获取、设置属性的时候，会自动根据属性注册的类型进行类型转换。获取的时候将 string parse 成对应的 js 类型，设置的时候将 js 类型做 stringify 处理。</li>
+  </ul>
+
+  <p>例如，组件类上的声明是这样的：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+class TodoItem extends TaoComponent
+
+  @tag 'tao-todo-item'
+
+  @attribute 'completed', 'active', type: 'boolean'
+
+  @attribute 'tags', type: 'array', default: []\
+  ) %></code></pre>
+
+  <p>页面上的 HTML 是这样的：</p>
+
+  <pre><code class="erb"><%= %Q(\
+<tao-todo-item completed tags='[1,2,3]'>
+  ...
+</tao-todo-item>\
+  ) %></code></pre>
+
+  <p>在组件实例的上下文中：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+@completed # true
+@active # false
+@tags # Array: [1, 2, 3]
+
+@completed = false # 移除 tao-todo-item 上的 completed 属性
+@active = true # 在 tao-todo-item 上增加 active 属性
+@tags = [4, 5, 6] # 把 tao-todo-item 上 tags 属性的值修改为 "[4,5,6]"\
+  ) %></code></pre>
+
+  <h3>注册组件</h3>
+
+  <p>编写完组件的交互之后，还需要向浏览器注册组件类：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+TaoComponent.register TodoItem\
+  ) %></code></pre>
+
+  <p>这个过程其实是对 <code>customElements.define</code> 接口的封装：</p>
+
+  <pre><code class="coffee"><%= %Q(\
+customElements.define 'tao-todo-item', TodoItem\
+  ) %></code></pre>
+
+</article>

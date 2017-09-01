@@ -1,4 +1,4 @@
-class Layouts::MobileHeaderComponent < ApplicationComponent
+class ::Layouts::MobileHeaderComponent < ApplicationComponent
 
   def self.component_name
     :mobile_header

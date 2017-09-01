@@ -1,0 +1,113 @@
+<%= render 'docs/interaction/sidebar' %>
+
+<article>
+
+  <h3>TaoComponent</h3>
+
+  <h4>Class Methods</h4>
+
+  <%= tao_api_item name: 'tag', params: ['tagName'] do %>
+    <p>设置组件的标签名称。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'get', params: ['methodName', 'function'] do %>
+    <p>为组件定义一个 getter。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'set', params: ['methodName', 'function(val)'] do %>
+    <p>为组件定义一个 setter</p>
+  <% end %>
+
+  <%= tao_api_item name: 'attribute', params: ['attributeName...', 'options'] do %>
+    <p>为组件注册一个或者多个属性，这些属性会使用相同的 options。options 中支持的配置有：</p>
+
+    <ul>
+      <li><code>type</code>：属性的类型，目前支持的类型有：<code>string</code> <code>number</code> <code>boolean</code> <code>hash</code> <code>array</code></li>
+      <li><code>default</code>：属性的默认值</li>
+      <li><code>observe</code>：制定是否监听属性值的变化。如果设置为 true，属性值发生变化的时候会触发 <code>_attributeChanged</code> 和 <code>_attributeNameChanged</code> 两个回调，默认为 false。</li>
+    </ul>
+  <% end %>
+
+  <h4>Private Methods</h4>
+
+  <%= tao_api_item name: '_created', params: [] do %>
+    <p>组件被创建的时候触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: '_init', params: [] do %>
+    <p>组件第一次在页面上被渲染的时候触发，在组件的生命周期里只会被触发一次。</p>
+  <% end %>
+
+  <%= tao_api_item name: '_connected', params: [] do %>
+    <p>组件每次被插入到页面里的时候都会触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: '_disconnected', params: [] do %>
+    <p>组件每次被从页面上移除的时候都会触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: '_attributeChanged', params: [] do %>
+    <p>组件的属性发生变化之后触发。</p>
+  <% end %>
+
+  <%= tao_api_item name: '_beforeAttributeChanged', params: [] do %>
+    <p>组件的属性发生变化之前触发，返回 false 可以取消这次属性修改。</p>
+  <% end %>
+
+  <h4>Public Getter</h4>
+
+  <%= tao_api_item name: 'jq' do %>
+    <p>返回 HTML Element 对应的 jQuery 对象，等价于：<code>$(@)</code>。</p>
+  <% end %>
+
+  <h4>Public Methods</h4>
+
+  <%= tao_api_item name: 'reflow', params: [] do %>
+    <p>Force reflow 这个组件对应的 HTML Element。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'beforeCache', params: [] do %>
+    <p>在离开当前页面之前 Turbolinks 会触发 before-cache 事件，TaoApplication 会在这个事件中调用页面上每个 TaoComponent 的 <code>beforeCache</code> 方法，在这个方法中组件可以决定自己被 cache 的状态。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'findComponent', params: ['selectors...', 'callback'], tags: ['Return: array of components'] do %>
+    <p>通过 css selectors 来查找子 component。最后一个参数是可选的 callback function，会在子 component 加载完成之后被调用。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'on', params: ['same as on() in jQuery'] do %>
+    <p>给组件绑定交互事件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'one', params: ['same as one() in jQuery'] do %>
+    <p>给组件绑定交互事件，只会触发一次，触发之后自动解绑。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'off', params: ['same as off() in jQuery'] do %>
+    <p>给组件解绑交互事件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'trigger', params: ['same as trigger() in jQuery'] do %>
+    <p>在组件上触发一个交互事件。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'triggerHandler', params: ['same as triggerHandler() in jQuery'] do %>
+    <p>在组件上触发一个交互事件，并且不会冒泡，返回最后一个 handler 的结果。</p>
+  <% end %>
+
+  <h3>Tao.helpers</h3>
+
+  <p>全局的 helper 方法。</p>
+
+  <%= tao_api_item name: 'reflow', params: ['HTML Element'] do %>
+    <p>Force reflow 一个 HTML Element。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'findComponent', params: ['selectors...', 'callback', 'scope = document'], tags: ['Return: array of components'] do %>
+    <p>通过 css selectors 来查找一个或者多个 component。倒数第二个参数是可选的 callback function，会在 component 加载完成之后被调用。最后一个参数是查找范围。</p>
+  <% end %>
+
+  <%= tao_api_item name: 'componentReady', params: ['components...', 'callback'] do %>
+    <p>检查指定 component 实例的加载状态，在所有 component 加载完毕之后调用 callback，如果所有 component 都已经加载完毕，callback 会立即被调用。</p>
+  <% end %>
+
+</article>
