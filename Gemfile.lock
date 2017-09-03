@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: c639abfba02b6259d601857997fdeb94a5677c19
+  revision: db459ecc75ec4fc61c1c3decb37f725e74f3d73d
   branch: master
   specs:
     tao_on_rails (0.9.3)
