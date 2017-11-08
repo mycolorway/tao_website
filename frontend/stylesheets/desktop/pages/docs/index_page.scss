@@ -1,0 +1,22 @@
+.docs-index-page {
+  .group {
+    margin: 0 0 3rem 0;
+
+    h2 {
+      padding: 0 0.5rem;
+    }
+
+    .section {
+      padding: 1.5rem 0.5rem;
+      border-top: 1px solid $light-border-color;
+
+      p {
+        margin: 0;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid $light-border-color;
+      }
+    }
+  }
+}

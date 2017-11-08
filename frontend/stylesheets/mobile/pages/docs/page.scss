@@ -1,0 +1,40 @@
+@import '../../../shared/docs/page';
+
+.page.docs main {
+  aside {
+    padding: 1.5em 2em;
+    background: $grey-bg-color;
+
+    .link-return {
+      color: $lighter-grey-color;
+      font-size: $font-size-s;
+
+      &:before {
+        content: '<';
+        margin: 0 0.25rem 0 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0 0;
+
+      li {
+        a {
+          display: block;
+          padding: 0.5em 0;
+          color: $text-color;
+          line-height: $default-line-height;
+
+          &.active {
+            color: $ui-color;
+          }
+        }
+      }
+    }
+  }
+
+  article {
+  }
+}

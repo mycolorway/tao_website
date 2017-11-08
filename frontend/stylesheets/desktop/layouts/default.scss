@@ -1,0 +1,54 @@
+.page[layout='default'] {
+  width: 960px;
+  margin: 0 auto;
+
+  header {
+    .title {
+      display: flex;
+      margin: 1.5rem 0 0 0;
+      padding: 0 0 0 1rem;
+      align-items: flex-end;
+
+      h1 {
+        font-size: 2.5rem;
+        color: $grey-color;
+        margin: 0;
+        line-height: 1.1;
+      }
+
+      .desc {
+        margin: 0 0 0 0.75rem;
+        color: $lighter-grey-color;
+        line-height: 1.5;
+      }
+    }
+
+    nav {
+      background: $grey-bg-color;
+      margin: 1.5rem 0 0 0;
+      padding: 0 0 0 1rem;
+      display: flex;
+
+      a {
+        display: block;
+        padding: 0.5em 1em;
+        color: $text-color;
+        margin: 0 1rem 0 0;
+
+        &:hover {
+          color: $link-hover-color;
+        }
+
+        &.active {
+          background: $ui-color;
+          color: $white-color;
+        }
+      }
+
+    }
+  }
+
+  main {
+    margin: 2rem 0;
+  }
+}

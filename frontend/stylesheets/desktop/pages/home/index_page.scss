@@ -1,0 +1,47 @@
+.home-index-page {
+  .banner {
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    color: $light-grey-color;
+
+    .banner-image {
+      display: block;
+      width: 15rem;
+      height: 15rem;
+      flex: 0 0 auto;
+    }
+
+    .desc {
+      margin: 0 0 0 3rem;
+    }
+  }
+
+  .section {
+    margin: 4rem 0 0 0;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .example {
+      display: flex;
+      margin: 0 0 2rem 0;
+
+      .comments {
+        flex: 1 1 auto;
+        padding: 2rem 3rem;
+
+        p {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .codes {
+        width: 50%;
+        flex: 0 0 auto;
+      }
+    }
+  }
+}

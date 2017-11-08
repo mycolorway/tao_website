@@ -7,17 +7,17 @@
     <title><%= content_for(:title) || "#{t :tao} - #{t :slogan}" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'desktop/application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= content_for(:stylesheet) %>
+    <%= stylesheet_pack_tag 'desktop', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= include_gon %>
 
-    <%= javascript_include_tag 'desktop/application', 'data-turbolinks-track': 'reload' %>
-    <%= content_for(:javascript) %>
+    <%= javascript_pack_tag 'manifest', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'vendor', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'desktop', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= tao_page layout: 'default', class: @page_class.presence do %>
+    <%= content_tag 'div', layout: 'default', class: ['page', "#{page_id}-page", @page_class.presence].compact do %>
       <%= render 'layouts/header' %>
       <main>
         <%= yield %>

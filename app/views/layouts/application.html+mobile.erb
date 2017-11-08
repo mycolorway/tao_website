@@ -10,15 +10,17 @@
     <title><%= content_for(:title) || "#{t :tao} - #{t :slogan}" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag 'mobile/application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= content_for(:stylesheet) %>
+    <%= stylesheet_pack_tag 'mobile', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <%= javascript_include_tag 'mobile/application', 'data-turbolinks-track': 'reload' %>
-    <%= content_for(:javascript) %>
+    <%= include_gon %>
+
+    <%= javascript_pack_tag 'manifest', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'vendor', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'mobile', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= tao_page layout: 'default', class: @page_class.presence do %>
+    <%= content_tag 'div', layout: 'default', class: ['page', "#{page_id}-page", @page_class.presence].compact do %>
       <%= render 'layouts/header' %>
       <main>
         <%= yield %>

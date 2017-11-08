@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test karma start",
+    "ci": "NODE_ENV=test karma start --single-run"
+  },
+  "dependencies": {
+    "@mycolorway/tao": "1.0.0-alpha.1",
+    "@mycolorway/tao_form": "1.0.0-alpha.1",
+    "@mycolorway/tao_ui": "1.0.0-alpha.1",
+    "@rails/webpacker": "rails/webpacker",
+    "actioncable": "^5.1.4",
+    "babel-runtime": "^6.26.0",
+    "highlight.js": "^9.12.0",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.19.1",
+    "rails-ujs": "^5.1.4",
+    "turbolinks": "^5.0.3"
+  },
+  "devDependencies": {
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "chai": "^4.1.2",
+    "coffeescript": "^2.0.2",
+    "expose-loader": "^0.7.3",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-webpack": "^2.0.5",
+    "lodash-webpack-plugin": "^0.11.4",
+    "mocha": "^4.0.1",
+    "svg-sprite-loader": "^3.4.1",
+    "svgo": "^1.0.2",
+    "svgo-loader": "^2.0.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-merge": "^4.1.1"
+  }
+}
