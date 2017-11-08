@@ -88,8 +88,8 @@ task :deploy do
     invoke :'bundle:install'
 #    invoke :'rails:db_migrate'
     # invoke :'rails:assets_precompile'
-    command %{yarn}
-    command %{NODE_ENV=production RAILS_ENV=production bundle exec rails webpacker:compile}
+    queue %{yarn install}
+    queue %{NODE_ENV=production RAILS_ENV=production bundle exec rails webpacker:compile}
     invoke :'deploy:cleanup'
 
     to :launch do
