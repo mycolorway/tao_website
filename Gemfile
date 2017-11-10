@@ -52,5 +52,5 @@ end
 gem 'tao_on_rails', github: 'mycolorway/tao_on_rails', branch: :'v1.0.0'
 gem 'tao_ui', github: 'mycolorway/tao_ui', branch: :'v1.0.0'
 gem 'tao_form', github: 'mycolorway/tao_form', branch: :'v1.0.0'
-# gem 'tao_editor', github: 'mycolorway/tao_editor', branch: :master
+gem 'tao_editor', github: 'mycolorway/tao_editor', branch: :'v1.0.0'
 gem 'gon', '~> 6.1.0'

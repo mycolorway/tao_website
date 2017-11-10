@@ -1,6 +1,16 @@
 GIT
+  remote: https://github.com/mycolorway/tao_editor.git
+  revision: 13968b550067000337c283b42dcdbbf51dff58e3
+  branch: v1.0.0
+  specs:
+    tao_editor (0.0.1)
+      tao_form (~> 1.0.0)
+      tao_on_rails (~> 1.0.0)
+      tao_ui (~> 1.0.0)
+
+GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: 1ccea897fc288ff3fc6acce4076fcaa82eadf87a
+  revision: 5a64226ff018cd7f2687813b1b5cd780dcf886b6
   branch: v1.0.0
   specs:
     tao_form (1.0.0)
@@ -10,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: 9d9a85c6a10ccf18c7bd3336063bffc9d89664ee
+  revision: 4be3d19fe801e09a1fa2d16b83709934ac2de589
   branch: v1.0.0
   specs:
     tao_on_rails (1.0.0)
@@ -18,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: 3fb56c43ea00820963ded70ed96c398e5e71bcc3
+  revision: 82c92b834cc4495be1b245e6acb5a1e5996d4c12
   branch: v1.0.0
   specs:
     tao_ui (1.0.0)
@@ -219,6 +229,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   stackprof
+  tao_editor!
   tao_form!
   tao_on_rails!
   tao_ui!
