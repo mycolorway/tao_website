@@ -2,19 +2,19 @@
 # yarn lockfile v1
 
 
-"@mycolorway/tao@1.0.0-alpha.1":
+"@mycolorway/tao@mycolorway/tao_on_rails#v1.0.0":
   version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao/-/tao-1.0.0-alpha.1.tgz#d1efd9218ea395197eacfbbb3d43ebc962363e62"
+  resolved "https://codeload.github.com/mycolorway/tao_on_rails/tar.gz/9d9a85c6a10ccf18c7bd3336063bffc9d89664ee"
   dependencies:
     "@webcomponents/custom-elements" "^1.0.4"
 
-"@mycolorway/tao_form@1.0.0-alpha.1":
+"@mycolorway/tao_form@mycolorway/tao_form#v1.0.0":
   version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao_form/-/tao_form-1.0.0-alpha.1.tgz#0007ab904fb73726d9003e85df12894cddc55200"
+  resolved "https://codeload.github.com/mycolorway/tao_form/tar.gz/1ccea897fc288ff3fc6acce4076fcaa82eadf87a"
 
-"@mycolorway/tao_ui@1.0.0-alpha.1":
+"@mycolorway/tao_ui@mycolorway/tao_ui#v1.0.0":
   version "1.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao_ui/-/tao_ui-1.0.0-alpha.1.tgz#46199887d6cfee7e0de8610b13ca1f4f61362d0d"
+  resolved "https://codeload.github.com/mycolorway/tao_ui/tar.gz/3fb56c43ea00820963ded70ed96c398e5e71bcc3"
   dependencies:
     normalize.css "^7.0.0"
 

@@ -30,7 +30,7 @@ environment.loaders.set('icon', {
     loader: 'svg-sprite-loader',
     options: {
       symbolId: 'icon-[name]',
-      spriteModule: require.resolve('@mycolorway/tao_ui/javascripts/icons/sprite.coffee')
+      spriteModule: require.resolve('@mycolorway/tao_ui/frontend/javascripts/icons/sprite.coffee')
     }
   }, {
     loader: 'svgo-loader',

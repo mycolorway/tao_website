@@ -1,6 +1,6 @@
 import Tao from '@mycolorway/tao'
-import TaoUi from '@mycolorway/tao_ui/javascripts/mobile'
-import TaoForm from '@mycolorway/tao_form/javascripts/mobile'
+import TaoUi from '@mycolorway/tao_ui/frontend/javascripts/mobile'
+import TaoForm from '@mycolorway/tao_form/frontend/javascripts/mobile'
 import $ from 'jquery'
 
 import 'javascripts/mobile'
