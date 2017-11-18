@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: 5a64226ff018cd7f2687813b1b5cd780dcf886b6
+  revision: 8e38a195d122b9c5ee89527ad2ccc936dbe36572
   branch: v1.0.0
   specs:
     tao_form (1.0.0)
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: dba6fd61003138b5821edac496cfba02d981f557
+  revision: 486448f2e0419a7dc5ade5a7e26fb6fe15d9f6ac
   branch: v1.0.0
   specs:
     tao_ui (1.0.0)
