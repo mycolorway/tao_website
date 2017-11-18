@@ -1,4 +1,6 @@
 const webpackConfig = require('./config/webpack/test.js')
+delete webpackConfig.entry
+delete webpackConfig.output
 
 module.exports = (config) => {
   config.set({
@@ -21,5 +23,6 @@ module.exports = (config) => {
         reporter: 'html'
       }
     }
+
   });
 }

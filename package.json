@@ -5,10 +5,10 @@
     "ci": "NODE_ENV=test karma start --single-run"
   },
   "dependencies": {
-    "@mycolorway/tao": "mycolorway/tao_on_rails#v1.0.0",
-    "@mycolorway/tao_form": "mycolorway/tao_form#v1.0.0",
-    "@mycolorway/tao_ui": "mycolorway/tao_ui#v1.0.0",
-    "@mycolorway/tao_editor": "mycolorway/tao_editor#v1.0.0",
+    "@mycolorway/tao": "mycolorway/tao_on_rails",
+    "@mycolorway/tao_editor": "mycolorway/tao_editor",
+    "@mycolorway/tao_form": "mycolorway/tao_form",
+    "@mycolorway/tao_ui": "mycolorway/tao_ui",
     "@rails/webpacker": "rails/webpacker",
     "actioncable": "^5.1.4",
     "babel-plugin-lodash": "^3.2.11",
