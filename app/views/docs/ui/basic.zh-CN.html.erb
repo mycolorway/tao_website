@@ -264,10 +264,26 @@ TaoComponent.register TodoItem
   \<%= link_to "录用", '#', class: 'tab' %\>
   \<%= link_to "归档", '#', class: 'tab' %\>
 </div>
+<br>
+<div class="vertical-tabs">
+  \<%= link_to "新增加", '#', class: 'tab active' %\>
+  \<%= link_to "已推荐", '#', class: 'tab' %\>
+  \<%= link_to "面试", '#', class: 'tab' %\>
+  \<%= link_to "录用", '#', class: 'tab' %\>
+  \<%= link_to "归档", '#', class: 'tab' %\>
+</div>
 ) %></code></pre>
 
     <div class="demo">
       <div class="tabs">
+        <%= link_to "新增加", '#', class: 'tab active' %>
+        <%= link_to "已推荐", '#', class: 'tab' %>
+        <%= link_to "面试", '#', class: 'tab' %>
+        <%= link_to "录用", '#', class: 'tab' %>
+        <%= link_to "归档", '#', class: 'tab' %>
+      </div>
+      <br>
+      <div class="vertical-tabs">
         <%= link_to "新增加", '#', class: 'tab active' %>
         <%= link_to "已推荐", '#', class: 'tab' %>
         <%= link_to "面试", '#', class: 'tab' %>
