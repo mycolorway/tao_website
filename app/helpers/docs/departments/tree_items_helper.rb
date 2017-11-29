@@ -15,6 +15,10 @@ module Docs
           }, {
             id: '1-3',
             name: '行政子部门3'
+          }, {
+            id: '1-4',
+            remote: false,
+            name: '行政子部门4'
           }]
         }, {
           id: 2,
@@ -33,6 +37,9 @@ module Docs
           id: 3,
           name: '产品部'
         }, {
+          id: 5,
+          name: '市场部'
+        }, {
           id: 4,
           name: '销售部',
           children: [{
@@ -45,9 +52,6 @@ module Docs
             id: '3-3',
             name: '销售子部门3'
           }]
-        }, {
-          id: 5,
-          name: '市场部'
         }]
       end
 

@@ -49,7 +49,9 @@ parentItem.updateList($treeList);
         selectable: true,
         associated_select: true,
         remote: -> (department, depth) {
-          { url: docs_department_tree_items_path(department[:id]) } if depth > 0
+          if depth > 0 && department[:remote] != false
+            { url: docs_department_tree_items_path(department[:id]) }
+          end
         },
         expanded: -> (department, depth) { depth < 1 }
       } do |department| %>
