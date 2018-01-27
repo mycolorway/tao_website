@@ -1,32 +1,35 @@
 {
+  "name": "tao_website",
   "private": true,
   "scripts": {
     "test": "NODE_ENV=test karma start",
     "ci": "NODE_ENV=test karma start --single-run"
   },
   "dependencies": {
-    "@mycolorway/tao": "mycolorway/tao_on_rails",
-    "@mycolorway/tao_editor": "mycolorway/tao_editor",
-    "@mycolorway/tao_form": "mycolorway/tao_form",
-    "@mycolorway/tao_ui": "mycolorway/tao_ui",
-    "@rails/webpacker": "rails/webpacker",
+    "@mycolorway/tao": "^1.0.0-beta.2",
+    "@mycolorway/tao_editor": "^1.0.0-beta.1",
+    "@mycolorway/tao_form": "^1.0.0-beta.1",
+    "@mycolorway/tao_ui": "^1.0.0-beta.2",
+    "@rails/webpacker": "^3.2.1",
     "actioncable": "^5.1.4",
     "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-runtime": "^6.26.0",
-    "coffeescript": "^2.0.2",
-    "expose-loader": "^0.7.3",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.1.0",
     "highlight.js": "^9.12.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
     "moment": "^2.19.1",
+    "rails-erb-loader": "^5.2.1",
     "rails-ujs": "^5.1.4",
     "svg-sprite-loader": "^3.4.1",
     "svgo": "^1.0.2",
     "svgo-loader": "^2.0.0",
     "turbolinks": "^5.0.3",
-    "webpack": "^3.8.1",
+    "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.0"
   },
   "devDependencies": {
@@ -37,7 +40,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-webpack": "^2.0.5",
     "mocha": "^4.0.1",
-    "webpack-dev-server": "^2.9.4",
+    "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
   }
 }

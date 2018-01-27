@@ -1,41 +1,38 @@
 GIT
   remote: https://github.com/mycolorway/tao_editor.git
-  revision: 8a63ab3638d0ebc72cf5fbd9b25ff375f7779683
+  revision: 754e2ccd408e28a25c3649a88f4cdbf574a9431d
   branch: master
   specs:
-    tao_editor (0.0.1)
+    tao_editor (1.0.0.beta.1)
+      tao_form (~> 1.0.0.beta.1)
+      tao_on_rails (~> 1.0.0.beta.1)
+      tao_ui (~> 1.0.0.beta.1)
 
 GIT
   remote: https://github.com/mycolorway/tao_form.git
-  revision: f8d98704caffdc651dbdb1fe969dc9cc8c796223
+  revision: 6419efb250392d1485378a6652f112a40e19bd82
   branch: master
   specs:
-    tao_form (1.0.0)
+    tao_form (1.0.0.beta.1)
       simple_form (~> 3.5.0)
+      tao_on_rails (~> 1.0.0.beta.1)
+      tao_ui (~> 1.0.0.beta.1)
 
 GIT
   remote: https://github.com/mycolorway/tao_on_rails.git
-  revision: a456ce1a4b2ef7d26633ce0f1d11317339e0ef0a
+  revision: cd6279e888951c1c5ffe4f805136d57babfc79d1
   branch: master
   specs:
-    tao_on_rails (1.0.0)
-      rails (>= 5.0.0, < 5.2)
+    tao_on_rails (1.0.0.beta.2)
+      rails (>= 5.0.0, < 5.3)
 
 GIT
   remote: https://github.com/mycolorway/tao_ui.git
-  revision: cf55c9bef07078aeefd2b53afe2454770292553f
+  revision: dad21cb707f53ba7cac1e61c8babe982495a7bab
   branch: master
   specs:
-    tao_ui (1.0.0)
-
-GIT
-  remote: https://github.com/rails/webpacker.git
-  revision: b47f7dda228af4a69737af993b0269af6fac2814
-  specs:
-    webpacker (3.0.2)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
+    tao_ui (1.0.0.beta.1)
+      tao_on_rails (~> 1.0.0.beta.1)
 
 GEM
   remote: https://rubygems.org/
@@ -136,7 +133,7 @@ GEM
       pry (>= 0.10.4)
     puma (3.10.0)
     rack (2.0.3)
-    rack-proxy (0.6.2)
+    rack-proxy (0.6.3)
       rack
     rack-test (0.7.0)
       rack (>= 1.0, < 3)
@@ -198,6 +195,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (3.2.1)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -229,7 +230,7 @@ DEPENDENCIES
   tao_ui!
   unicorn
   web-console (>= 3.3.0)
-  webpacker!
+  webpacker (~> 3.2.0)
 
 BUNDLED WITH
-   1.15.4
+   1.16.0

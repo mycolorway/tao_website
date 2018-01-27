@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
 module.exports = (environment) => {
-  environment.plugins.set(
+  environment.plugins.append(
     'CommonsChunkVendor',
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -12,7 +12,7 @@ module.exports = (environment) => {
     })
   )
 
-  environment.plugins.set(
+  environment.plugins.append(
     'CommonsChunkManifest',
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',

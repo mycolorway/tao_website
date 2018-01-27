@@ -1,7 +1,9 @@
+const _ = require('lodash')
+
 module.exports = (environment) => {
-  // skip svg file
+
   const fileRule = environment.loaders.get('file')
-  fileRule.test = /\.(jpg|jpeg|png|gif|tiff|ico|eot|otf|ttf|woff|woff2)$/i
+  fileRule.exclude = /\.svg/
 
   const spriteLoaderConfig = {
     loader: 'svg-sprite-loader',
@@ -11,24 +13,24 @@ module.exports = (environment) => {
     }
   }
 
-  environment.loaders.set('colored_icon', {
-    test: /-colored\.svg/,
-    use: [spriteLoaderConfig, 'svgo-loader']
-  })
-
-  environment.loaders.set('icon', {
-    test: (modulePath) => {
-      return /\.svg/.test(modulePath) && !/-colored\.svg/.test(modulePath)
-    },
-    use: [spriteLoaderConfig, {
-      loader: 'svgo-loader',
-      options: {
-        plugins: [{
-          removeAttrs: {
-            attrs: ['fill']
-          }
-        }]
-      }
+  environment.loaders.append('icon', {
+    enforce: 'pre',
+    oneOf: [{
+      test: /-colored\.svg/,
+      use: [spriteLoaderConfig, 'svgo-loader']
+    }, {
+      test: /\.svg/,
+      use: [spriteLoaderConfig, {
+        loader: 'svgo-loader',
+        options: {
+          plugins: [{
+            removeAttrs: {
+              attrs: ['fill']
+            }
+          }]
+        }
+      }]
     }]
   })
+
 }

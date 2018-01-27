@@ -5,6 +5,7 @@ module.exports = (environment) => {
   environment.config.set('resolve.alias', {
     jquery: path.resolve('node_modules', 'jquery'),
     lodash: path.resolve('node_modules', 'lodash'),
+    moment: path.resolve('node_modules', 'moment'),
     turbolinks: path.resolve('node_modules', 'turbolinks'),
     "svg-baker-runtime": path.resolve('node_modules', 'svg-baker-runtime'),
     "core-js": path.resolve('node_modules', 'core-js'),

@@ -6,12 +6,12 @@ function config(...names) {
   })
 }
 
-config('coffeescript', 'icon', 'link', 'moment', 'lodash', 'bundle_analyzer')
+config('coffee', 'icon', 'link', 'moment', 'lodash', 'chunk')
 
 if (process.env.NODE_ENV === 'test') {
   config('karma')
 } else {
-  config('chunk')
+  config('bundle_analyzer')
 }
 
 module.exports = environment
