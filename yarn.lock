@@ -26,9 +26,9 @@
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@mycolorway/tao_form/-/tao_form-1.0.0-beta.1.tgz#ddc138ef16999d00816e347ada2ac4c4624bb477"
 
-"@mycolorway/tao_ui@^1.0.0-beta.2":
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@mycolorway/tao_ui/-/tao_ui-1.0.0-beta.2.tgz#2d038c94d500d029f67a90054d97ff7a644f400e"
+"@mycolorway/tao_ui@^1.0.0-beta.4":
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@mycolorway/tao_ui/-/tao_ui-1.0.0-beta.4.tgz#45d0e80134081f67024ce1a6725cae32f6fb9018"
   dependencies:
     normalize.css "^7.0.0"
 
